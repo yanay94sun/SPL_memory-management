@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 #include "Graph.h"
-
+using namespace std;
 
 class Agent;
 
@@ -16,8 +16,11 @@ enum TreeType{
 
 class Session{
 public:
-    Session(const std::string& path);
+    Session(const string& path);
     virtual ~Session();
+
+    //yanay copy constructor
+    Session(const Session& other);
     
     void simulate();
     void addAgent(const Agent& agent);
@@ -28,7 +31,7 @@ public:
     TreeType getTreeType() const;
     
 private:
-    std::vector<std::vector<int>> parseGraph(const std::string &path);
+    std::vector<vector<int>> parseGraph(const string &path);
 
     Graph g;
     TreeType treeType;
