@@ -20,10 +20,11 @@ public:
     virtual ~Session();
     
     void simulate();
-    void addAgent(const Agent& agent);
+    void addAgent(const Agent& agent); // for example after virus infect other node.. need to create new instance
     void setGraph(const Graph& graph);
     
     void enqueueInfected(int);
+    void setInfected(int); // Dolav suggestion
     int dequeueInfected();
     TreeType getTreeType() const;
     

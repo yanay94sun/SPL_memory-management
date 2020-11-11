@@ -6,6 +6,7 @@ class Agent{
 public:
     Agent();
     virtual ~Agent();
+    virtual Agent* clone() = 0; // dolav says this method  very necessary.. if need to implement: Agent* currAgent = otherVec[0];   Agent* newAgnet = curAgent->clone()
     virtual void act(Session& session)=0;
 };
 
