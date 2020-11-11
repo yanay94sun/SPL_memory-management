@@ -13,11 +13,11 @@ ContactTracer::ContactTracer() {
 }
 void ContactTracer::act(Session &session) {}
 
-ContactTracer::virtual Agent* clone() const{
+ContactTracer::Agent* clone() const{
     return new ContactTracer(*this);
 }
 
-Virus::virtual Agent* clone() const{
+Virus::Agent* clone() const{
     return new Virus(*this);
 }
 
