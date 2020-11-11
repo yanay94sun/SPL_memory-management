@@ -21,9 +21,9 @@ std::ostream& operator<<(std::ostream &os, const Graph &graph)
 }
 
 
-vector<vector<int>> Session::parseGraph(const std::string &path)
+vector<vector<int>> Session::parseGraph(const string &path)
 {
-    std::ifstream file(path);
+    ifstream file(path);
     json j;
     file >> j;
     vector<vector<int>> res;
@@ -64,8 +64,8 @@ vector<vector<int>> Session::parseGraph(const std::string &path)
     return res;
 }
 
-
-Session::Session(const std::string &path) : g(parseGraph(path)) {
+//not sure about it - yanay
+Session::Session(const std::string &path) : g(parseGraph(path)), treeType() {
     std::cout << g << std::endl;
 }
 
@@ -74,8 +74,23 @@ Session::~Session() {
         delete agent;
 }
 
+//copy constructor --- need to implmant clone() in each agent.S
+Session:Session(const Session& other){
+    for(int i=0 ; i < other.agents.size() ; i++){
+        agents.push_back(other.agents[i] -> clone());
+    }
+};
+
 void Session::addAgent(const Agent& agent) {}
-void Session::setGraph(const Graph& graph) {}
+
+void Session::setGraph(const Graph& graph) {
+    g = graph;
+}
+
+//yanay add
+Graph& getGraphReference(){
+    return g;
+}
 
 void Session::enqueueInfected(int) {}
 int Session::dequeueInfected() {return 0;}
