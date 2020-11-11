@@ -74,7 +74,7 @@ Session::~Session() {
         delete agent;
 }
 
-//copy constructor --- need to implmant clone() in each agent.
+//copy constructor --- need to implmant clone() in each agent.S
 Session:Session(const Session& other){
     for(int i=0 ; i < other.agents.size() ; i++){
         agents.push_back(other.agents[i] -> clone());
@@ -82,7 +82,15 @@ Session:Session(const Session& other){
 };
 
 void Session::addAgent(const Agent& agent) {}
-void Session::setGraph(const Graph& graph) {}
+
+void Session::setGraph(const Graph& graph) {
+    g = graph;
+}
+
+//yanay add
+Graph& getGraphReference(){
+    return g;
+}
 
 void Session::enqueueInfected(int) {}
 int Session::dequeueInfected() {return 0;}

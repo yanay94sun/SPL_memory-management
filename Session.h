@@ -29,6 +29,9 @@ public:
     void enqueueInfected(int);
     int dequeueInfected();
     TreeType getTreeType() const;
+
+    // yanay add
+    Graph& getGraphReference();
     
 private:
     std::vector<vector<int>> parseGraph(const string &path);
