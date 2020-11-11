@@ -2,15 +2,18 @@
 #define GRAPH_H_
 
 #include <vector>
-
+#include <iostream> // FIXME: REMOVE IT
 class Graph{
 public:
     Graph(std::vector<std::vector<int>> matrix);
-    
+
+
     void infectNode(int nodeInd);
     bool isInfected(int nodeInd);
+
+    friend std::ostream& operator<<(std::ostream &os, const Graph &graph);
 private:
     std::vector<std::vector<int>> edges;
-}
+};
 
 #endif
