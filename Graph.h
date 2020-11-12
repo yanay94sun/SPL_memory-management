@@ -8,6 +8,10 @@ public:
     Graph(std::vector<std::vector<int>> matrix);
 
 
+    //dolav did it like that ------- yanay
+    Tree* BFSSCAN(int nodeInd, const Session& session);
+
+
     void infectNode(int nodeInd);
     bool isInfected(int nodeInd);
 
