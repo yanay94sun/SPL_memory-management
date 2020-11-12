@@ -81,6 +81,13 @@ Session:Session(const Session& other){
     }
 };
 
+// TODO need to get inside session, not sure how  //Yanay
+void Session::simulate(){
+    for (auto& elem:agents){
+        elem->act(/* here */) ;
+    }
+}
+
 void Session::addAgent(const Agent& agent) {}
 
 void Session::setGraph(const Graph& graph) {
@@ -92,6 +99,8 @@ void Session::setGraph(const Graph& graph) {
 Graph& Session::getGraphReference(){
     return g;
 }
+
+
 
 void Session::enqueueInfected(int) {}
 int Session::dequeueInfected() {return 0;}

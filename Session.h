@@ -34,6 +34,7 @@ public:
 
     // yanay add
     Graph& getGraphReference();
+    const Graph& getGraph() const;
     
 private:
     std::vector<vector<int>> parseGraph(const string &path);

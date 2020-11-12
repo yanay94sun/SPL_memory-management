@@ -8,43 +8,43 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/spl211/CLionProjects/SPL/cmake-build-debug"/>
+				<Option working_dir="/home/spl211/CLionProjects/SPL2.2/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/spl211/CLionProjects/SPL/cmake-build-debug"/>
+				<Option working_dir="/home/spl211/CLionProjects/SPL2.2/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/spl211/CLionProjects/SPL/cmake-build-debug"/>
+				<Option working_dir="/home/spl211/CLionProjects/SPL2.2/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="SPL">
-				<Option output="/home/spl211/CLionProjects/SPL/cmake-build-debug/SPL" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/spl211/CLionProjects/SPL/cmake-build-debug"/>
+				<Option output="/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/SPL" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/spl211/CLionProjects/SPL2.2/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/spl211/CLionProjects/SPL/."/>
+					<Add directory="/home/spl211/CLionProjects/SPL2.2/."/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -55,20 +55,20 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 SPL"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 SPL"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="SPL/fast">
-				<Option output="/home/spl211/CLionProjects/SPL/cmake-build-debug/SPL" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/spl211/CLionProjects/SPL/cmake-build-debug"/>
+				<Option output="/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/SPL" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/spl211/CLionProjects/SPL2.2/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/spl211/CLionProjects/SPL/."/>
+					<Add directory="/home/spl211/CLionProjects/SPL2.2/."/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -79,44 +79,44 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 SPL/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 SPL/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/spl211/CLionProjects/SPL/Agent.cpp">
+		<Unit filename="/home/spl211/CLionProjects/SPL2.2/Agent.cpp">
 			<Option target="SPL"/>
 		</Unit>
-		<Unit filename="/home/spl211/CLionProjects/SPL/Agent.h">
+		<Unit filename="/home/spl211/CLionProjects/SPL2.2/Agent.h">
 			<Option target="SPL"/>
 		</Unit>
-		<Unit filename="/home/spl211/CLionProjects/SPL/Graph.cpp">
+		<Unit filename="/home/spl211/CLionProjects/SPL2.2/Graph.cpp">
 			<Option target="SPL"/>
 		</Unit>
-		<Unit filename="/home/spl211/CLionProjects/SPL/Graph.h">
+		<Unit filename="/home/spl211/CLionProjects/SPL2.2/Graph.h">
 			<Option target="SPL"/>
 		</Unit>
-		<Unit filename="/home/spl211/CLionProjects/SPL/Session.cpp">
+		<Unit filename="/home/spl211/CLionProjects/SPL2.2/Session.cpp">
 			<Option target="SPL"/>
 		</Unit>
-		<Unit filename="/home/spl211/CLionProjects/SPL/Session.h">
+		<Unit filename="/home/spl211/CLionProjects/SPL2.2/Session.h">
 			<Option target="SPL"/>
 		</Unit>
-		<Unit filename="/home/spl211/CLionProjects/SPL/Tree.cpp">
+		<Unit filename="/home/spl211/CLionProjects/SPL2.2/Tree.cpp">
 			<Option target="SPL"/>
 		</Unit>
-		<Unit filename="/home/spl211/CLionProjects/SPL/Tree.h">
+		<Unit filename="/home/spl211/CLionProjects/SPL2.2/Tree.h">
 			<Option target="SPL"/>
 		</Unit>
-		<Unit filename="/home/spl211/CLionProjects/SPL/json.hpp">
+		<Unit filename="/home/spl211/CLionProjects/SPL2.2/json.hpp">
 			<Option target="SPL"/>
 		</Unit>
-		<Unit filename="/home/spl211/CLionProjects/SPL/main.cpp">
+		<Unit filename="/home/spl211/CLionProjects/SPL2.2/main.cpp">
 			<Option target="SPL"/>
 		</Unit>
-		<Unit filename="/home/spl211/CLionProjects/SPL/CMakeLists.txt">
+		<Unit filename="/home/spl211/CLionProjects/SPL2.2/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
