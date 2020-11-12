@@ -9,7 +9,8 @@ public:
     Tree(int rootLabel);
     void addChild(const Tree& child);
     Tree * BFS(int startingNode);  // rafael add
-    void addNeghber(); // rafael add
+    void addNeighbor(); // rafael add
+
     static Tree* createTree(const Session& session, int rootLabel);
     virtual int traceTree()=0;
 private:
