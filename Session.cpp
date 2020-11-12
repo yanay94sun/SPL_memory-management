@@ -99,6 +99,9 @@ void Session::setGraph(const Graph& graph) {
 Graph& Session::getGraphReference(){
     return g;
 }
+const Graph& Session::getGraph() const {
+    return g;
+}
 
 
 
