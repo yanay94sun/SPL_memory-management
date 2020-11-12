@@ -8,16 +8,23 @@ Agent::~Agent() {}
 
 
 
+
+
+
 ContactTracer::ContactTracer() {
 
 }
 void ContactTracer::act(Session &session) {}
 
-ContactTracer::Agent* clone() const{
+Agent* ContactTracer::clone() const{ // need to explain yany something here
     return new ContactTracer(*this);
 }
 
-Virus::Agent* clone() const{
+
+
+
+
+Agent* Virus::clone() const{// need to explain yany something here
     return new Virus(*this);
 }
 
