@@ -2,20 +2,36 @@
 
 using namespace std;
 
-Tree::Tree(int rootLabel) {
+Tree::Tree(int rootLabel) { // RULE OF 5 !!
 
 }
 void Tree::addChild(const Tree &child) {
 
 }
 
+Tree * Tree::BFS(int startingNode) {
+
+
+}
+
 Tree * Tree::createTree(const Session &session, int rootLabel) {
+    string type = j["tree"].get<string>();
+    if (type == "R")
+        treeType = Root;
+    else if (type == "M")
+        treeType = MaxRank;
+    else if (type == "C")
+        treeType = Cycle;
+
+
+
+
     // Visited vector to so that
     // a vertex is not visited more than once
     // Initializing the vector to false as no
     // vertex is visited at the beginning
-    vector<bool> visited(v/*??*/, false);
-    vector<int> q;
+    //vector<bool> visited(v/*??*/, false);
+    /*vector<int> q;
     q.push_back(rootLabel);
 
     // Set source as visited
@@ -40,7 +56,7 @@ Tree * Tree::createTree(const Session &session, int rootLabel) {
                 visited[i] = true;
             }
         }
-    }
+    }*/
 
 
 

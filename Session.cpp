@@ -65,7 +65,7 @@ vector<vector<int>> Session::parseGraph(const string &path)
 }
 
 //not sure about it - yanay
-Session::Session(const std::string &path) : g(parseGraph(path)), treeType() {
+Session::Session(const std::string &path) : g(parseGraph(path)), treeType(), agents() {
     std::cout << g << std::endl;
 }
 

@@ -8,13 +8,14 @@ class Tree{
 public:
     Tree(int rootLabel);
     void addChild(const Tree& child);
-
-
+    Tree * BFS(int startingNode);  // rafael add
+    void addNeghber(); // rafael add
     static Tree* createTree(const Session& session, int rootLabel);
     virtual int traceTree()=0;
 private:
     int node;
     std::vector<Tree*> children;
+//    string type;
 };
 
 class CycleTree: public Tree{
