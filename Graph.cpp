@@ -16,3 +16,14 @@ Graph::Graph(std::vector<std::vector<int>> matrix) {
 
 void Graph::infectNode(int nodeInd) {}
 bool Graph::isInfected(int nodeInd) {return true;}
+
+
+//need HELP
+Tree* BFSSCAN(int nodeInd, const Session& session){
+    Tree* currTree = Tree::initTree(nodeInd, session);
+
+    //BFS NEED TO IMPLMENT HERE..........................
+
+
+    return currTRee;
+}
