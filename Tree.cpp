@@ -1,4 +1,7 @@
+#include <string>
 #include "Tree.h"
+#include "Session.h"
+
 
 using namespace std;
 
@@ -9,13 +12,16 @@ void Tree::addChild(const Tree &child) {
 
 }
 
-Tree * Tree::BFS(int startingNode) {
+Tree * Tree::BFS(int startingNode) { // rafael add
 
 
 }
 
 Tree * Tree::createTree(const Session &session, int rootLabel) {
-    string type = j["tree"].get<string>();
+    TreeType type = session.getTreeType();
+    Tree* root;
+    Graph& g = Session::getGraphReference();
+//    string type = j["tree"].get<string>(); -- avital line
     if (type == "R")
         treeType = Root;
     else if (type == "M")

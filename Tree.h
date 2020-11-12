@@ -1,6 +1,7 @@
 #ifndef TREE_H_
 #define TREE_H_
 #include <vector>
+//#include "Session.h"
 
 class Session;
 
@@ -10,6 +11,7 @@ public:
     void addChild(const Tree& child);
     Tree * BFS(int startingNode);  // rafael add
     void addNeighbor(); // rafael add
+
 
     static Tree* createTree(const Session& session, int rootLabel);
     virtual int traceTree()=0;

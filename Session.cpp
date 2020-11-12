@@ -87,8 +87,9 @@ void Session::setGraph(const Graph& graph) {
     g = graph;
 }
 
+
 //yanay add
-Graph& getGraphReference(){
+Graph& Session::getGraphReference(){
     return g;
 }
 
@@ -97,3 +98,4 @@ int Session::dequeueInfected() {return 0;}
 TreeType Session::getTreeType() const {
     return Cycle;
 }
+
