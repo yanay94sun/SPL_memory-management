@@ -32,6 +32,8 @@ public:
 
     virtual Agent* clone() const; //need by dolav
     virtual void act(Session& session);
+
+    int statusInt; // rafael add - 0 if just added and need to wait for the next round. 1 if ready to act
 private:
     const int nodeInd;
 };

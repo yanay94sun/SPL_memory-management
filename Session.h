@@ -44,9 +44,15 @@ public:
     // yanay add
     const Graph& getGraph() const;
 
-    std::vector<std::vector<int>> getEdges();
+    std::vector<std::vector<int>> getEdges(); // rafael add
 
     int getCycleCounter() const; // rafael add
+
+    std::vector<int> getInfectedQ(); // rafael add
+
+    std::vector<int> getNonVirusFreeVec(); // rafael add
+
+    bool findInNonVirusFreeVec(const int &nodeInd) const ; // rafael add
 
 
 
@@ -58,7 +64,10 @@ private:
     std::vector<Agent*> agents;
 
     int cycleCounter; // rafael add
-    queue<int> infectedQ; // rafael add
+    std::vector<int> infectedQ; // rafael add
+
+    std::vector<int> nonVirusFreeVec; // rafael add
+
 };
 
 #endif

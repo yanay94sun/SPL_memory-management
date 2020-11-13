@@ -108,11 +108,11 @@ const Graph& Session::getGraph() const {
 
 
 void Session::enqueueInfected(int node) { // rafael add
-    infectedQ.push(node);
+    infectedQ.push_back(node);
 }
 
 int Session::dequeueInfected() { // rafael add
-    infectedQ.pop();
+    infectedQ.pop_back();
 }
 
 TreeType Session::getTreeType() const {
@@ -125,6 +125,23 @@ std::vector<std::vector<int>> Session::getEdges() { // rafael add
 
 int Session::getCycleCounter() const {
     return cycleCounter;
+}
+
+std::vector<int> Session::getInfectedQ() { // rafael add
+    return infectedQ;
+}
+
+std::vector<int> Session::getNonVirusFreeVec(){
+    return nonVirusFreeVec;
+}
+
+bool Session::findInNonVirusFreeVec(const int &nodeInd) const {
+    bool flag = false;
+    for (int i : nonVirusFreeVec) {
+        if (i == nodeInd)
+            flag = true;
+    }
+    return flag;
 }
 
 
