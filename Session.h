@@ -17,31 +17,43 @@ enum TreeType{
 class Session{
 public:
     Session(const string& path);
+
     virtual ~Session();
 
     //yanay copy constructor
     Session(const Session& other);
     
     void simulate();
+
     void addAgent(const Agent& agent); // for example after virus infect other node.. need to create new instance
+
     void setGraph(const Graph& graph);
 //    Graph getGraph(); // rafael did
     
     void enqueueInfected(int);
+
     void setInfected(int); // Dolav suggestion
+
     int dequeueInfected();
+
     TreeType getTreeType() const;
 
     // yanay add
     Graph& getGraphReference();
+    // yanay add
     const Graph& getGraph() const;
-    
+
+    int getCycleCounter() const; // rafael add
+
+
 private:
     std::vector<vector<int>> parseGraph(const string &path);
 
     Graph g;
     TreeType treeType;
     std::vector<Agent*> agents;
+
+    int cycleCounter; // rafael add
 };
 
 #endif

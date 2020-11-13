@@ -7,6 +7,7 @@
 using json = nlohmann::json;
 using namespace std;
 
+// aviital func
 std::ostream& operator<<(std::ostream &os, const Graph &graph)
 {
     for (std::vector<int> row : graph.edges)
@@ -20,7 +21,7 @@ std::ostream& operator<<(std::ostream &os, const Graph &graph)
     return os;
 }
 
-
+// aviital func
 vector<vector<int>> Session::parseGraph(const string &path)
 {
     ifstream file(path);
@@ -39,14 +40,7 @@ vector<vector<int>> Session::parseGraph(const string &path)
         }
     }
 
-    string type = j["tree"].get<string>();
-    if (type == "R")
-        treeType = Root;
-    else if (type == "M")
-        treeType = MaxRank;
-    else if (type == "C")
-        treeType = Cycle;
-
+// avital func
     auto agentsJ = j["agents"];
     for (size_t i = 0; i < agentsJ.size(); i++)
     {
@@ -75,9 +69,9 @@ Session::~Session() {
 }
 
 //copy constructor --- need to implmant clone() in each agent.S
-Session:Session(const Session& other){
-    for(int i=0 ; i < other.agents.size() ; i++){
-        agents.push_back(other.agents[i] -> clone());
+Session::Session(const Session& other):g(vector<vector<int>>()), treeType(other.treeType), agents() {
+    for(int i=0; i < other.agents.size(); i++){
+        agents.push_back(other.agents[i]->clone());
     }
 };
 
@@ -86,6 +80,7 @@ void Session::simulate(){
     for (auto& elem:agents){
         elem->act(/* here */) ;
     }
+    cycleCounter++;
 }
 
 void Session::addAgent(const Agent& agent) {}
@@ -106,8 +101,15 @@ const Graph& Session::getGraph() const {
 
 
 void Session::enqueueInfected(int) {}
+
 int Session::dequeueInfected() {return 0;}
+
 TreeType Session::getTreeType() const {
-    return Cycle;
+    return treeType;
 }
+
+int Session::getCycleCounter() const {
+    return cycleCounter;
+}
+
 

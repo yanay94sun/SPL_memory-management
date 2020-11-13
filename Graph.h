@@ -3,19 +3,24 @@
 
 #include <vector>
 #include <iostream> // FIXME: REMOVE IT
+#include "Session.h"
+#include "Tree.h"
+
 class Graph{
 public:
     Graph(std::vector<std::vector<int>> matrix);
 
 
     //dolav did it like that ------- yanay
-    Tree* BFSSCAN(int nodeInd, const Session& session);
+    Tree* BFSScan(int nodeInd, const Session& session);
 
 
     void infectNode(int nodeInd);
+
     bool isInfected(int nodeInd);
 
-    friend std::ostream& operator<<(std::ostream &os, const Graph &graph);
+    friend std::ostream& operator<<(std::ostream &os, const Graph &graph); // avital func
+
 private:
     std::vector<std::vector<int>> edges;
 };

@@ -1,6 +1,6 @@
 #include <string>
 #include "Tree.h"
-#include "Session.h"
+#include "Session.h" // ASK OK ?????????????
 
 
 using namespace std;
@@ -8,65 +8,35 @@ using namespace std;
 Tree::Tree(int rootLabel) { // RULE OF 5 !!
 
 }
-void Tree::addChild(const Tree &child) {
+
+Tree::Tree(int &other) { // copy constructor -- ASK for HELP
 
 }
 
-Tree * Tree::BFS(int startingNode) { // rafael add
-
-
+void Tree::addChild(const Tree &child) { // rafael add -- dolav says that it have to be implement , but not realy use
+    Tree* copy = child.clone();
+    children.push_back(copy);
 }
+
+void Tree::addChild(Tree *child) {
+    children.push_back(child);
+}
+
 
 Tree * Tree::createTree(const Session &session, int rootLabel) {
-    TreeType type = session.getTreeType();
-    Tree* root;
-    Graph& g = Session::getGraphReference();
-//    string type = j["tree"].get<string>(); -- avital line
-    if (type == "R")
-        treeType = Root;
-    else if (type == "M")
-        treeType = MaxRank;
-    else if (type == "C")
-        treeType = Cycle;
-
-
-
-
-    // Visited vector to so that
-    // a vertex is not visited more than once
-    // Initializing the vector to false as no
-    // vertex is visited at the beginning
-    //vector<bool> visited(v/*??*/, false);
-    /*vector<int> q;
-    q.push_back(rootLabel);
-
-    // Set source as visited
-    visited[rootLabel] = true;
-
-    int vis;
-    while (!q.empty()) {
-        vis = q[0];
-
-        // Print the current node
-        cout << vis << " ";
-        q.erase(q.begin());
-
-        // For every adjacent vertex to the current vertex
-        for (int i = 0; i < v; i++) {
-            if (adj[vis][i] == 1 && (!visited[i])) {
-
-                // Push the adjacent node to the queue
-                q.push_back(i);
-
-                // Set
-                visited[i] = true;
-            }
-        }
-    }*/
-
-
-
+    Tree *newTree;
+    if (session.getTreeType() == MaxRank) {
+        newTree = new MaxRankTree(rootLabel);
+    }
+    if (session.getTreeType() == Root) {
+        newTree = new RootTree(rootLabel);
+    }
+    if (session.getTreeType() == Cycle) {
+        newTree = new CycleTree(rootLabel, session.getCycleCounter());
+    }
+    return newTree;
 }
+
 
 int Tree::traceTree() {
 
