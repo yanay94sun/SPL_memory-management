@@ -21,6 +21,8 @@ public:
 
     friend std::ostream& operator<<(std::ostream &os, const Graph &graph); // avital func
 
+    std::vector<std::vector<int>> getEdges(); // rafael add
+
 private:
     std::vector<std::vector<int>> edges;
 };

@@ -54,19 +54,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/spl211/Downloads/CLion/clion-2020.2.4/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/spl211/Downloads/CLion-2020.2.4/clion-2020.2.4/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/spl211/Downloads/CLion/clion-2020.2.4/bin/cmake/linux/bin/cmake -E rm -f
+RM = /home/spl211/Downloads/CLion-2020.2.4/clion-2020.2.4/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/spl211/CLionProjects/SPL2.2
+CMAKE_SOURCE_DIR = /home/spl211/CLionProjects/SPL
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/spl211/CLionProjects/SPL2.2/cmake-build-debug
+CMAKE_BINARY_DIR = /home/spl211/CLionProjects/SPL/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/SPL.dir/depend.make
@@ -79,68 +79,68 @@ include CMakeFiles/SPL.dir/flags.make
 
 CMakeFiles/SPL.dir/Agent.cpp.o: CMakeFiles/SPL.dir/flags.make
 CMakeFiles/SPL.dir/Agent.cpp.o: ../Agent.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SPL.dir/Agent.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SPL.dir/Agent.cpp.o -c /home/spl211/CLionProjects/SPL2.2/Agent.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spl211/CLionProjects/SPL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SPL.dir/Agent.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SPL.dir/Agent.cpp.o -c /home/spl211/CLionProjects/SPL/Agent.cpp
 
 CMakeFiles/SPL.dir/Agent.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SPL.dir/Agent.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spl211/CLionProjects/SPL2.2/Agent.cpp > CMakeFiles/SPL.dir/Agent.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spl211/CLionProjects/SPL/Agent.cpp > CMakeFiles/SPL.dir/Agent.cpp.i
 
 CMakeFiles/SPL.dir/Agent.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SPL.dir/Agent.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spl211/CLionProjects/SPL2.2/Agent.cpp -o CMakeFiles/SPL.dir/Agent.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spl211/CLionProjects/SPL/Agent.cpp -o CMakeFiles/SPL.dir/Agent.cpp.s
 
 CMakeFiles/SPL.dir/Graph.cpp.o: CMakeFiles/SPL.dir/flags.make
 CMakeFiles/SPL.dir/Graph.cpp.o: ../Graph.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SPL.dir/Graph.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SPL.dir/Graph.cpp.o -c /home/spl211/CLionProjects/SPL2.2/Graph.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spl211/CLionProjects/SPL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SPL.dir/Graph.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SPL.dir/Graph.cpp.o -c /home/spl211/CLionProjects/SPL/Graph.cpp
 
 CMakeFiles/SPL.dir/Graph.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SPL.dir/Graph.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spl211/CLionProjects/SPL2.2/Graph.cpp > CMakeFiles/SPL.dir/Graph.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spl211/CLionProjects/SPL/Graph.cpp > CMakeFiles/SPL.dir/Graph.cpp.i
 
 CMakeFiles/SPL.dir/Graph.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SPL.dir/Graph.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spl211/CLionProjects/SPL2.2/Graph.cpp -o CMakeFiles/SPL.dir/Graph.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spl211/CLionProjects/SPL/Graph.cpp -o CMakeFiles/SPL.dir/Graph.cpp.s
 
 CMakeFiles/SPL.dir/main.cpp.o: CMakeFiles/SPL.dir/flags.make
 CMakeFiles/SPL.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SPL.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SPL.dir/main.cpp.o -c /home/spl211/CLionProjects/SPL2.2/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spl211/CLionProjects/SPL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SPL.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SPL.dir/main.cpp.o -c /home/spl211/CLionProjects/SPL/main.cpp
 
 CMakeFiles/SPL.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SPL.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spl211/CLionProjects/SPL2.2/main.cpp > CMakeFiles/SPL.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spl211/CLionProjects/SPL/main.cpp > CMakeFiles/SPL.dir/main.cpp.i
 
 CMakeFiles/SPL.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SPL.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spl211/CLionProjects/SPL2.2/main.cpp -o CMakeFiles/SPL.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spl211/CLionProjects/SPL/main.cpp -o CMakeFiles/SPL.dir/main.cpp.s
 
 CMakeFiles/SPL.dir/Session.cpp.o: CMakeFiles/SPL.dir/flags.make
 CMakeFiles/SPL.dir/Session.cpp.o: ../Session.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SPL.dir/Session.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SPL.dir/Session.cpp.o -c /home/spl211/CLionProjects/SPL2.2/Session.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spl211/CLionProjects/SPL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SPL.dir/Session.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SPL.dir/Session.cpp.o -c /home/spl211/CLionProjects/SPL/Session.cpp
 
 CMakeFiles/SPL.dir/Session.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SPL.dir/Session.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spl211/CLionProjects/SPL2.2/Session.cpp > CMakeFiles/SPL.dir/Session.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spl211/CLionProjects/SPL/Session.cpp > CMakeFiles/SPL.dir/Session.cpp.i
 
 CMakeFiles/SPL.dir/Session.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SPL.dir/Session.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spl211/CLionProjects/SPL2.2/Session.cpp -o CMakeFiles/SPL.dir/Session.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spl211/CLionProjects/SPL/Session.cpp -o CMakeFiles/SPL.dir/Session.cpp.s
 
 CMakeFiles/SPL.dir/Tree.cpp.o: CMakeFiles/SPL.dir/flags.make
 CMakeFiles/SPL.dir/Tree.cpp.o: ../Tree.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SPL.dir/Tree.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SPL.dir/Tree.cpp.o -c /home/spl211/CLionProjects/SPL2.2/Tree.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spl211/CLionProjects/SPL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SPL.dir/Tree.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SPL.dir/Tree.cpp.o -c /home/spl211/CLionProjects/SPL/Tree.cpp
 
 CMakeFiles/SPL.dir/Tree.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SPL.dir/Tree.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spl211/CLionProjects/SPL2.2/Tree.cpp > CMakeFiles/SPL.dir/Tree.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spl211/CLionProjects/SPL/Tree.cpp > CMakeFiles/SPL.dir/Tree.cpp.i
 
 CMakeFiles/SPL.dir/Tree.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SPL.dir/Tree.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spl211/CLionProjects/SPL2.2/Tree.cpp -o CMakeFiles/SPL.dir/Tree.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spl211/CLionProjects/SPL/Tree.cpp -o CMakeFiles/SPL.dir/Tree.cpp.s
 
 # Object files for target SPL
 SPL_OBJECTS = \
@@ -160,7 +160,7 @@ SPL: CMakeFiles/SPL.dir/Session.cpp.o
 SPL: CMakeFiles/SPL.dir/Tree.cpp.o
 SPL: CMakeFiles/SPL.dir/build.make
 SPL: CMakeFiles/SPL.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable SPL"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/spl211/CLionProjects/SPL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable SPL"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SPL.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -173,6 +173,6 @@ CMakeFiles/SPL.dir/clean:
 .PHONY : CMakeFiles/SPL.dir/clean
 
 CMakeFiles/SPL.dir/depend:
-	cd /home/spl211/CLionProjects/SPL2.2/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/spl211/CLionProjects/SPL2.2 /home/spl211/CLionProjects/SPL2.2 /home/spl211/CLionProjects/SPL2.2/cmake-build-debug /home/spl211/CLionProjects/SPL2.2/cmake-build-debug /home/spl211/CLionProjects/SPL2.2/cmake-build-debug/CMakeFiles/SPL.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/spl211/CLionProjects/SPL/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/spl211/CLionProjects/SPL /home/spl211/CLionProjects/SPL /home/spl211/CLionProjects/SPL/cmake-build-debug /home/spl211/CLionProjects/SPL/cmake-build-debug /home/spl211/CLionProjects/SPL/cmake-build-debug/CMakeFiles/SPL.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/SPL.dir/depend
 

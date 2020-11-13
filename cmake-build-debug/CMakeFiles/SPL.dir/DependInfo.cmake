@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/spl211/CLionProjects/SPL2.2/Agent.cpp" "/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/CMakeFiles/SPL.dir/Agent.cpp.o"
-  "/home/spl211/CLionProjects/SPL2.2/Graph.cpp" "/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/CMakeFiles/SPL.dir/Graph.cpp.o"
-  "/home/spl211/CLionProjects/SPL2.2/Session.cpp" "/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/CMakeFiles/SPL.dir/Session.cpp.o"
-  "/home/spl211/CLionProjects/SPL2.2/Tree.cpp" "/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/CMakeFiles/SPL.dir/Tree.cpp.o"
-  "/home/spl211/CLionProjects/SPL2.2/main.cpp" "/home/spl211/CLionProjects/SPL2.2/cmake-build-debug/CMakeFiles/SPL.dir/main.cpp.o"
+  "/home/spl211/CLionProjects/SPL/Agent.cpp" "/home/spl211/CLionProjects/SPL/cmake-build-debug/CMakeFiles/SPL.dir/Agent.cpp.o"
+  "/home/spl211/CLionProjects/SPL/Graph.cpp" "/home/spl211/CLionProjects/SPL/cmake-build-debug/CMakeFiles/SPL.dir/Graph.cpp.o"
+  "/home/spl211/CLionProjects/SPL/Session.cpp" "/home/spl211/CLionProjects/SPL/cmake-build-debug/CMakeFiles/SPL.dir/Session.cpp.o"
+  "/home/spl211/CLionProjects/SPL/Tree.cpp" "/home/spl211/CLionProjects/SPL/cmake-build-debug/CMakeFiles/SPL.dir/Tree.cpp.o"
+  "/home/spl211/CLionProjects/SPL/main.cpp" "/home/spl211/CLionProjects/SPL/cmake-build-debug/CMakeFiles/SPL.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

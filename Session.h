@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include "Graph.h"
+#include <queue>
 using namespace std;
 
 class Agent;
@@ -30,11 +31,11 @@ public:
     void setGraph(const Graph& graph);
 //    Graph getGraph(); // rafael did
     
-    void enqueueInfected(int);
+    void enqueueInfected(int); // rafael add
 
     void setInfected(int); // Dolav suggestion
 
-    int dequeueInfected();
+    int dequeueInfected(); // rafael add
 
     TreeType getTreeType() const;
 
@@ -43,7 +44,10 @@ public:
     // yanay add
     const Graph& getGraph() const;
 
+    std::vector<std::vector<int>> getEdges();
+
     int getCycleCounter() const; // rafael add
+
 
 
 private:
@@ -54,6 +58,7 @@ private:
     std::vector<Agent*> agents;
 
     int cycleCounter; // rafael add
+    queue<int> infectedQ; // rafael add
 };
 
 #endif

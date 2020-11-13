@@ -8,14 +8,13 @@ Agent::~Agent() {}
 
 
 
-
 //--------------------------
 
 ContactTracer::ContactTracer() {
 
 }
 void ContactTracer::act(Session &session) {
-    Tree* bfs =
+    Tree* bfs = g.BFSScan(session.dequeueInfected(), session); // rafael add
 }
 
 Agent* ContactTracer::clone() const{
@@ -35,6 +34,10 @@ Virus::Virus(int nodeInd) : nodeInd(nodeInd) {
 
 }
 void Virus::act(Session &session) {
+    session.enqueueInfected(nodeInd);
+    for (int i = 0; i < session.getEdges().size(); ++i) {
+
+    }
 
 }
 

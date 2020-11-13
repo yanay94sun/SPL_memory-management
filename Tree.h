@@ -24,7 +24,7 @@ public:
     virtual Tree* clone() const = 0; // NEED to check -- think its necessary -- **maybe just here** -- rafael add
 
 
-private:
+protected:
     int node;
 
     std::vector<Tree*> children;

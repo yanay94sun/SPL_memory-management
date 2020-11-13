@@ -2,15 +2,19 @@
 #define AGENT_H_
 #include <vector>
 #include "Session.h"
+#include "Graph.h" // rafel add
+
 class Agent{
 public:
     Agent();
     virtual ~Agent();
+    virtual int getNodeInt();
     virtual Agent* clone() const = 0; // dolav says this method  very necessary.. if need to implement: Agent* currAgent = otherVec[0];   Agent* newAgnet = curAgent->clone()
     virtual void act(Session& session)=0;
     //need to start like this: ||||  Tree* bfs = graph.BFSSCan(infected, session); ||||    ------------------- yanay
 
-    vector<int> infectedQ; // check if OK ????????????????????????????????
+protected: // rafael add ?????
+    Graph g; // rafael add
 };
 
 class ContactTracer: public Agent{

@@ -60,3 +60,7 @@ Tree*  Graph::BFSScan(int nodeInd, const Session& session){
     }
     return currTree;
 }
+
+std::vector<std::vector<int>> Graph::getEdges() { // rafael add
+    return edges;
+}
