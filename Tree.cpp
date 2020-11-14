@@ -37,9 +37,7 @@ Tree * Tree::createTree(const Session &session, int rootLabel) {
     return newTree;
 }
 
+//---------------------------------------------------
 
-int Tree::traceTree() {
-
-}
-
+CycleTree::CycleTree(int rootLabel, int currCycle): Tree(rootLabel), currCycle(currCycle) {}
 

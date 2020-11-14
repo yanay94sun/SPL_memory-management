@@ -3,8 +3,8 @@
 
 
 Graph::Graph(std::vector<std::vector<int>> matrix) {
-    edges = matrix;
-    std::vector<int> infectedVec (edges.size());
+    edges = matrix; // CHECK !!!! ?????????????????????????????????????????????????????
+    infectedVec = std::vector<int>  (edges.size());
 
 
 //    for (std::vector<int> row : edges)
@@ -70,5 +70,9 @@ Tree*  Graph::BFSScan(int nodeInd, const Session& session){
 }
 
 std::vector<std::vector<int>> Graph::getEdges() { // rafael add
+    return edges;
+}
+
+std::vector<std::vector<int>>& Graph::getEdgesReference(){
     return edges;
 }

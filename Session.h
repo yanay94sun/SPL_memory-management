@@ -26,6 +26,8 @@ public:
     
     void simulate();
 
+    bool isTermination();
+
     void addAgent(const Agent& agent); // for example after virus infect other node.. need to create new instance
 
     void setGraph(const Graph& graph);

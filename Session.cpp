@@ -34,9 +34,9 @@ vector<vector<int>> Session::parseGraph(const string &path)
     {
         auto row = graph[i];
         res.push_back(std::vector<int>());
-        for (size_t j = 0; j < row.size(); j++)
+        for (auto & k : row)
         {
-            res[i].push_back(row[j].get<int>());
+            res[i].push_back(k.get<int>());
         }
     }
     string type = j["tree"].get<string>();
@@ -50,10 +50,9 @@ vector<vector<int>> Session::parseGraph(const string &path)
 
 // avital func
     auto agentsJ = j["agents"];
-    for (size_t i = 0; i < agentsJ.size(); i++)
+    for (auto agent : agentsJ)
     {
-        auto agent = agentsJ[i];
-        for (size_t j = 0; j < agent.size(); j++)
+        for (size_t z = 0; z < agent.size(); z++)
         {
            string agentType = agent[0].get<string>();
             if (agentType == "V")
@@ -85,10 +84,31 @@ Session::Session(const Session& other):g(other.g), treeType(other.treeType), age
 
 // TODO need to get inside session, not sure how  //Yanay
 void Session::simulate(){
-    for (auto& elem:agents){
-        elem->act(/* here */) ;
+    while (!isTermination()) {
+        for (auto &elem:agents) {
+            elem->act(*this);
+        }
+        cycleCounter++;
     }
-    cycleCounter++;
+}
+
+bool Session::isTermination() {
+    for (int i = 0; i < g.getEdges().size(); i++) {
+        if (g.isInfected(i)){
+            for (int j = 0; j < g.getEdges().size(); j++) {
+                if (g.getEdges()[i][j] == 1 && !g.isInfected(j))
+                    return false;
+            }
+        }
+        else{
+            for (int k = 0; k < g.getEdges().size(); k++) {
+                if (g.getEdges()[i][k] == 1 && g.isInfected(k))
+                    return false;
+
+            }
+        }
+    }
+    return true;
 }
 
 void Session::addAgent(const Agent& agent) {}

@@ -23,6 +23,8 @@ public:
 
     std::vector<std::vector<int>> getEdges(); // rafael add
 
+    std::vector<std::vector<int>>& getEdgesReference();
+
 private:
     std::vector<std::vector<int>> edges;
 

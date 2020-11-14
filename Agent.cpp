@@ -15,6 +15,12 @@ ContactTracer::ContactTracer() {
 }
 void ContactTracer::act(Session &session) {
     Tree* bfs = session.getGraphReference().BFSScan(session.dequeueInfected(), session); // rafael add
+    int infectedNodeInd = bfs->traceTree();
+    for (int i = 0; i < session.getEdges().size(); ++i){
+        session.getGraphReference().getEdgesReference()[infectedNodeInd][i] = 0;
+        session.getGraphReference().getEdgesReference()[i][infectedNodeInd] = 0;
+    }
+    delete (bfs);// CHECK if delete here or in the Tree ????????????????????????????????????????????????????????????????
 }
 
 Agent* ContactTracer::clone() const{
@@ -46,16 +52,13 @@ void Virus::act(Session &session) {
     session.enqueueInfected(nodeInd);
     for (int i = 0; i < session.getEdges().size(); ++i) {
 
-        if (session.findInNonVirusFreeVec(nodeInd))
+        if (session.findInNonVirusFreeVec(nodeInd) || session.getEdges()[nodeInd][i] == 0)
             continue;
-        else if(session.getEdges()[nodeInd][i] == 0)
-            continue;
-        else{
+//        else if(session.getEdges()[nodeInd][i] == 0)
+//            continue;
+//            auto newVirus = this->clone();
+        session.addAgent(Virus(i)); //???????????????????????????????????????????????????????????????????
 
-            auto newVirus = this->clone();
-            session.addAgent(newVirus);
-            break;
-        }
 
 
     }
