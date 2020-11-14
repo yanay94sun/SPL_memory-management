@@ -25,6 +25,8 @@ public:
 
 private:
     std::vector<std::vector<int>> edges;
+
+    std::vector<int> infectedVec;
 };
 
 #endif

@@ -4,6 +4,8 @@
 
 Graph::Graph(std::vector<std::vector<int>> matrix) {
     edges = matrix;
+    std::vector<int> infectedVec (edges.size());
+
 
 //    for (std::vector<int> row : edges)
 //    {
@@ -16,10 +18,16 @@ Graph::Graph(std::vector<std::vector<int>> matrix) {
 }
 
 void Graph::infectNode(int nodeInd) {
+    infectedVec[nodeInd] = 1;
 
 }
 
-bool Graph::isInfected(int nodeInd) {return true;}
+bool Graph::isInfected(int nodeInd) {
+    if (infectedVec[nodeInd] == 1)
+        return true;
+    return false;
+
+}
 
 
 Tree*  Graph::BFSScan(int nodeInd, const Session& session){

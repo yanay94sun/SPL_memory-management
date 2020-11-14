@@ -13,8 +13,8 @@ public:
     virtual void act(Session& session)=0;
     //need to start like this: ||||  Tree* bfs = graph.BFSSCan(infected, session); ||||    ------------------- yanay
 
-protected: // rafael add ?????
-    Graph g; // rafael add
+//protected: // rafael add ?????
+//    Graph g; // rafael add
 };
 
 class ContactTracer: public Agent{
