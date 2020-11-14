@@ -83,10 +83,10 @@ Session::Session(const Session& other):g(other.g), treeType(other.treeType), age
     }
 };
 
-// TODO need to get inside session, not sure how  //Yanay
+// TODO need to put session inside act(), not sure how, hope I did it right.  //Yanay
 void Session::simulate(){
     for (auto& elem:agents){
-        elem->act(/* here */) ;
+        elem->act(*this) ;
     }
     cycleCounter++;
 }

@@ -2,6 +2,7 @@
 #define TREE_H_
 #include <vector>
 //#include "Session.h"
+using namespace std;
 
 class Session; // ASK SOMEONE !!!!!!!
 
@@ -9,9 +10,9 @@ class Tree{
 public:
     Tree(int rootLabel); // constructor
 
-    Tree(int& other); // copy constructor
-
     virtual ~ Tree(); // distructor
+
+    Tree(const Tree&); // copy constructor
 
     void addChild(const Tree& child); // dolav says that it have to be implement , but not realy use
 
@@ -25,13 +26,21 @@ public:
 
     virtual Tree* clone() const = 0; // NEED to check -- think its necessary -- **maybe just here** -- rafael add
 
+    virtual int getChildrenNum (); //yanay add for cycle tree
+
+    virtual const Tree& getChildAt(int childInd) const;  //yanay add
+
+    virtual int getNodeInd(Tree& tree) const;  //yanay add
+
+    vector<Tree*> getChildrenVec() const;
+
 
 
 
 protected:
     int node;
 
-    std::vector<Tree*> children;
+    vector<Tree*> children;
 };
 
 //---------------------------------------------------
@@ -43,6 +52,10 @@ public:
     virtual int traceTree();
 
     virtual Tree* clone() const; // NEED to check -- think its necessary -- rafael add
+
+
+
+
 
 
 private:
@@ -68,7 +81,7 @@ public:
 
     virtual int traceTree();
 
-    virtual Tree* clone() const; // NEED to check -- think its necessary -- rafael add
+    virtual Tree* clone() const; // NEED to check -- think its necessary -- rafael add **** Yes its necessary for addChildren function. ****
 };
 
 #endif
