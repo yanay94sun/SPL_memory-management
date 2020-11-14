@@ -8,7 +8,7 @@ using json = nlohmann::json;
 using namespace std;
 
 // aviital func
-std::ostream& operator<<(std::ostream &os, const Graph &graph)
+ostream& operator<<(ostream &os, const Graph &graph)
 {
     for (std::vector<int> row : graph.edges)
     {

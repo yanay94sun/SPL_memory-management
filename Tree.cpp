@@ -5,8 +5,17 @@
 
 using namespace std;
 
-Tree::Tree(int rootLabel) { // RULE OF 5 !!
 
+Tree::Tree(int rootLabel) :   { // RULE OF 5 !!
+
+}
+
+//distructor --- yanay
+Tree::~Tree(){
+    for(auto & child : children){
+        delete child;
+    }
+    children.clear() ; //size of children vector is now zero --- yanay
 }
 
 Tree::Tree(int &other) { // copy constructor -- ASK for HELP

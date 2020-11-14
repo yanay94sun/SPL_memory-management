@@ -11,6 +11,8 @@ public:
 
     Tree(int& other); // copy constructor
 
+    virtual ~ Tree(); // distructor
+
     void addChild(const Tree& child); // dolav says that it have to be implement , but not realy use
 
     void addChild(Tree* child); // rafael add -- help us in the BFS func
@@ -22,6 +24,8 @@ public:
     virtual int traceTree()=0;
 
     virtual Tree* clone() const = 0; // NEED to check -- think its necessary -- **maybe just here** -- rafael add
+
+
 
 
 protected:
