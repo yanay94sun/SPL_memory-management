@@ -33,8 +33,8 @@ bool Graph::isInfected(int nodeInd) {
 
 
 Tree*  Graph::BFSScan(int nodeInd, const Session& session){
-    Tree* currTree = Tree::createTree(session, nodeInd);
-
+    Tree* retTree = Tree::createTree(session, nodeInd);
+//    auto retTree = currTree;
     // Visited vector to so that
     // a vertex is not visited more than once
     // Initializing the vector to false as no
@@ -50,11 +50,10 @@ Tree*  Graph::BFSScan(int nodeInd, const Session& session){
     int vis;
     while (!q.empty()) {
         vis = q[0];
-
+        Tree* currTree = Tree::createTree(session, q[0]); //TODO creat new Tree , realy move the next node ??????????????????????????????????????????????????????????????????
         // Print the current node
         cout << vis << " "; // REMOVE !!!!!!!!!!!!!!!!!!!!!
         q.erase(q.begin()); //dequeue
-
         // For every adjacent vertex to the current vertex
         for (int i = 0; i < vertexNum; i++) {
             if (edges[vis][i] == 1 && (!visited[i])) {
@@ -68,7 +67,7 @@ Tree*  Graph::BFSScan(int nodeInd, const Session& session){
             }
         }
     }
-    return currTree;
+    return retTree;
 }
 
 std::vector<std::vector<int>> Graph::getEdges() { // rafael add
