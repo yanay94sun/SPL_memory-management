@@ -74,7 +74,7 @@ int CycleTree::traceTree() {   //yanay add ------- Hope its works
         tempChildVec = tempRoot->getChildrenVec();
         counter++;
     }
-    return getNodeInd(*tempRoot);
+    return getNodeInd(*tempRoot); //TODO need to delete copy!! dont know where. --- yanay
 }
 
 

@@ -80,7 +80,15 @@ Session::Session(const Session& other):g(other.g), treeType(other.treeType), age
     for(int i=0; i < other.agents.size(); i++){
         agents.push_back(other.agents[i]->clone());
     }
-};
+}
+
+// Move Constructor
+//Session::Session(Session&& other) : g(other.g), treeType(other.treeType), agents() // TODO need to get inside session, not sure how  //Yanay
+//{
+//    other.g  = 0;
+//    other.treeType = 0;
+//    other.agents = nullptr;
+//}
 
 // TODO need to get inside session, not sure how  //Yanay
 void Session::simulate(){
@@ -111,7 +119,9 @@ bool Session::isTermination() {
     return true;
 }
 
-void Session::addAgent(const Agent& agent) {}
+void Session::addAgent(const Agent& agent) {
+    agents.push_back(agent.clone()); //TODO need to delete copy!!! dont know where. --- yanay
+}
 
 void Session::setGraph(const Graph& graph) {
     g = graph;
