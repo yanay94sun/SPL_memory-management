@@ -23,7 +23,7 @@ public:
 
     //yanay copy constructor
     Session(const Session& other);
-
+    
     void simulate();
 
     bool isTermination();
@@ -42,9 +42,9 @@ public:
     TreeType getTreeType() const;
 
     // yanay add
-    Graph& getGraphReference();
+    Graph&  getGraphReference();
     // yanay add
-    const Graph& getGraph() const;  //CHECK WHY WE ARE NOT USING IT ---- YANAY
+    const Graph& getGraph() const;
 
     std::vector<std::vector<int>> getEdges(); // rafael add
 
