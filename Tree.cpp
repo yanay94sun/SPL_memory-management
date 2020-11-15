@@ -18,9 +18,10 @@ Tree::~Tree(){
     children.clear() ; //size of children vector is now zero --- yanay
 }
 
-Tree::Tree(const Tree &other) : node(other.node) { // copy constructor -- ASK for HELP3
-    return
-
+Tree::Tree(const Tree &other) : node(other.node), children(vector<Tree*>()) { // copy constructor -- ASK for HELP!!!
+    for(auto child : other.children){
+        this->addChild(child);
+    }
 }
 
 void Tree::addChild(const Tree &child) { // rafael add -- dolav says that it have to be implement , but not realy use
