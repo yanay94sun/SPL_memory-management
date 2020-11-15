@@ -112,6 +112,12 @@ int MaxRankTree::traceTree() {
 
 }
 
+Tree* MaxRankTree::clone() const {
+    return new MaxRankTree(*this);
+}
+
+
+
 
 
 

@@ -6,7 +6,7 @@ Agent::Agent() {
 
 }
 
-//Agent::~Agent() {}  --- no need probbly
+Agent::~Agent() {}  // need for def distructor for no warnings
 
 
 
