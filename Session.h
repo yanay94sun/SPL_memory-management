@@ -42,7 +42,7 @@ public:
     TreeType getTreeType() const;
 
     // yanay add
-    Graph& getGraphReference();
+    Graph& session getGraphReference();
     // yanay add
     const Graph& getGraph() const;
 

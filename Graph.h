@@ -3,7 +3,8 @@
 
 #include <vector>
 #include <iostream> // FIXME: REMOVE IT
-#include "Session.h"
+//#include "Session.h"
+class Session;
 #include "Tree.h"
 
 class Graph{

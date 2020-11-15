@@ -12,4 +12,4 @@ int main(int argc, char** argv){
 
     // sess.simulate(); FIXME: Fix it
     return 0;
-}
+};
