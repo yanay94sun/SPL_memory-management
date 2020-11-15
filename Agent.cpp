@@ -1,11 +1,12 @@
 #include "Agent.h"
 #include "Tree.h"
 
+
 Agent::Agent() {
 
 }
 
-Agent::~Agent() {}
+//Agent::~Agent() {}  --- no need probbly
 
 
 

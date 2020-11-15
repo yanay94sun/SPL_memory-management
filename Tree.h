@@ -26,9 +26,7 @@ public:
 
     virtual Tree* clone() const = 0; // NEED to check -- think its necessary -- **maybe just here** -- rafael add
 
-    virtual int getChildrenNum (); //yanay add for cycle tree
-
-    virtual const Tree& getChildAt(int childInd) const;  //yanay add
+    //virtual const Tree& getChildAt(int childInd) const;  //yanay add
 
     virtual int getNodeInd(Tree& tree) const;  //yanay add
 
@@ -58,6 +56,8 @@ public:
 
 
 
+
+
 private:
     int currCycle;
 };
@@ -71,6 +71,10 @@ public:
     virtual int traceTree();
 
     virtual Tree* clone() const; // NEED to check -- think its necessary -- rafael add
+
+    virtual int getMaxRankNode(); //yanay add
+
+    virtual int getChildrenNum (); //yanay add for MaxRankTree
 };
 
 //---------------------------------------------------

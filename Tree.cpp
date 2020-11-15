@@ -1,7 +1,7 @@
 #include <string>
 #include "Tree.h"
 #include "Session.h" // ASK OK ?????????????
-
+#include "Graph.h"
 
 using namespace std;
 
@@ -50,9 +50,9 @@ Tree * Tree::createTree(const Session &session, int rootLabel) {
 
 
 
-const Tree &Tree::getChildAt(int childInd) const {
-    return *this->children[childInd];    // yanay add
-}
+//const Tree &Tree::getChildAt(int childInd) const {
+//    return *this->children[childInd];    // yanay add
+//}
 
 
 int Tree::getNodeInd(Tree &tree) const {   //yanay add
@@ -92,9 +92,23 @@ vector<Tree *> Tree::getChildrenVec() const {
 
 //MaxRankTree --------------------------------
 
+
+//MaxRankTRee constructor ---- Yanay
+MaxRankTree::MaxRankTree(int rootLabel) : Tree(rootLabel) {}
+
+
 // for MaxRankTree -- Yanay add
-int Tree::getChildrenNum()  {
+int MaxRankTree::getChildrenNum()  {
     return this->children.size();
+}
+// yanay add
+int MaxRankTree::getMaxRankNode() {
+
+}
+
+//yanay add
+int MaxRankTree::traceTree() {
+
 }
 
 

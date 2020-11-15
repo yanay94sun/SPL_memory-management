@@ -85,6 +85,7 @@ Session::Session(const Session& other):g(other.g), treeType(other.treeType), age
 // TODO need to get inside session, not sure how  //Yanay
 void Session::simulate(){
     while (!isTermination()) {
+        int size = agents.size();
         for (auto &elem:agents) {
             elem->act(*this);
         }
