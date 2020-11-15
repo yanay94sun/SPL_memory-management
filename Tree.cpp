@@ -20,7 +20,7 @@ Tree::~Tree(){
 
 Tree::Tree(const Tree &other) : node(other.node), children(vector<Tree*>()) { // copy constructor -- ASK for HELP!!!
     for(auto child : other.children){
-        this->addChild(child);
+        this->addChild(child->clone());
     }
 }
 
@@ -68,13 +68,14 @@ CycleTree::CycleTree(int rootLabel, int currCycle) : Tree(rootLabel), currCycle(
 
 int CycleTree::traceTree() {   //yanay add ------- Hope its works
     int counter = 0;
-    Tree* tempRoot = this->clone();
+    Tree* tempRoot = this;
     vector<Tree*> tempChildVec = tempRoot->getChildrenVec();
     while (counter <= currCycle && !tempChildVec.empty()){
         tempRoot = tempChildVec[0];
         tempChildVec = tempRoot->getChildrenVec();
         counter++;
     }
+    delete tempRoot;
     return getNodeInd(*tempRoot); //TODO need to delete copy!! dont know where. --- yanay
 }
 
