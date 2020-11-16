@@ -12,10 +12,25 @@ Tree::Tree(int rootLabel) : node(rootLabel) { // RULE OF 5 !! --- yanay add node
 
 //distructor --- yanay
 Tree::~Tree(){
+
+    cout << "I am in the destractur "  << endl;
+    cout << "I Am node:" << this->node << endl;
     for(auto & child : children){
+
+
+        cout << "num of children: " << children.size() << endl;
+        cout << "I am about to delete node:" << child->node << endl;
+        cout << "\n" << endl;
+
+
+
         delete child;
+        cout << child->node << " has been deleted!" << endl;
     }
+    cout << "clearing" << endl;
     children.clear() ; //size of children vector is now zero --- yanay
+
+
 }
 
 Tree::Tree(const Tree &other) : node(other.node) { // copy constructor -- ASK for HELP!!!

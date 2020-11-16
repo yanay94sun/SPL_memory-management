@@ -52,15 +52,18 @@ Tree*  Graph::BFSScan(int nodeInd, const Session& session){
         vis = q[0]->getNodeInd();
         Tree* currTree = q[0]; //TODO creat new Tree , realy move the next node ??????????????????????????????????????????????????????????????????
         // Print the current node
-        cout << vis << " "; // REMOVE !!!!!!!!!!!!!!!!!!!!!
+//        cout << vis << " "; // REMOVE !!!!!!!!!!!!!!!!!!!!!
 
         // For every adjacent vertex to the current vertex
         for (int i = 0; i < vertexNum; i++) {
             if (edges[vis][i] == 1 && (!visited[i])) {
-                currTree->addChild(Tree::createTree(session, i));
+
+                Tree* tempChild = Tree::createTree(session, i);
+                //----currTree->addChild(Tree::createTree(session, i));
+                currTree->addChild(tempChild);
 
                 // Push the adjacent node to the queue
-                q.push_back(currTree);
+                q.push_back(tempChild);
 
                 // Set
                 visited[i] = true;

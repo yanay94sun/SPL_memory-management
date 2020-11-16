@@ -153,6 +153,7 @@ void Session::simulate(){
     for (int i = 0 ; i < size ; i++) {
         agents[i]->act(*this);
     }
+    cycleCounter++;
     while (!isTermination() || !nonVirusFreeVec.empty()) {///
         size = agents.size();
         for (int i = 0 ; i < size ; i++) {
@@ -210,8 +211,14 @@ void Session::enqueueInfected(int node) { // rafael add
 }
 
 int Session::dequeueInfected() { // rafael add
-    int res = infectedQ.back();
-    infectedQ.pop_back();
+    int res = infectedQ.front();
+    for (int i = 0; i < infectedQ.size(); ++i) {
+        //cout << infectedQ[i] << endl;
+    }
+
+    //cout << "dequeue:" << res << endl;
+
+    infectedQ.erase(std::remove(infectedQ.begin(), infectedQ.end(), infectedQ.size() - 1), infectedQ.end());
     return res;
 }
 

@@ -52,12 +52,15 @@ void Virus::act(Session &session) {
 //    if (flag)
 //        session.enqueueInfected(nodeInd);
 
-    session.getGraphReference().infectNode(nodeInd);
-    session.enqueueInfected(nodeInd);
-    session.removeVirusFromVec(nodeInd);
+    if (!session.getGraphReference().isInfected(nodeInd)) {
+        session.getGraphReference().infectNode(nodeInd);
+        session.removeVirusFromVec(nodeInd);
+        session.enqueueInfected(nodeInd);
+    }
+
     for (int i = 0; i < session.getEdges().size(); ++i) {
 
-        if (session.findInNonVirusFreeVec(i) || session.getEdges()[nodeInd][i] == 0)
+        if (session.findInNonVirusFreeVec(i) || session.getEdges()[nodeInd][i] == 0 || session.getGraphReference().isInfected(i))
             continue;
 //        else if(session.getEdges()[nodeInd][i] == 0)
 //            continue;
