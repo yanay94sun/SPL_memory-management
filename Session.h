@@ -63,6 +63,10 @@ public:
 
     void clear();
 
+    void addVirusToVec(int nodeInd);
+
+    void removeVirusFromVec(int nodeInd);
+
 
 private:
     void parseJson(const string &path);

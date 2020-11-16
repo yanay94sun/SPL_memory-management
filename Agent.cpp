@@ -54,14 +54,16 @@ void Virus::act(Session &session) {
 
     session.getGraphReference().infectNode(nodeInd);
     session.enqueueInfected(nodeInd);
+    session.removeVirusFromVec(nodeInd);
     for (int i = 0; i < session.getEdges().size(); ++i) {
 
-        if (session.findInNonVirusFreeVec(nodeInd) || session.getEdges()[nodeInd][i] == 0)
+        if (session.findInNonVirusFreeVec(i) || session.getEdges()[nodeInd][i] == 0)
             continue;
 //        else if(session.getEdges()[nodeInd][i] == 0)
 //            continue;
 //            auto newVirus = this->clone();
         session.addAgent(Virus(i)); //???????????????????????????????????????????????????????????????????
+        session.addVirusToVec(i);
         //maybe return here
         return; //not sure
 

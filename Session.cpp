@@ -58,8 +58,10 @@ void Session::parseJson(const string &path)
     for (auto agent : agentsJ)
     {
        string agentType = agent[0].get<string>();
-        if (agentType == "V")
+        if (agentType == "V"){
             agents.push_back(new Virus(agent[1].get<int>()));
+            nonVirusFreeVec.push_back(agent[1]); // adding the virus to the virus vec
+        }
         else if (agentType == "C")
             agents.push_back(new ContactTracer());
     }
@@ -151,7 +153,7 @@ void Session::simulate(){
     for (int i = 0 ; i < size ; i++) {
         agents[i]->act(*this);
     }
-    while (!isTermination()) {
+    while (!isTermination() || !nonVirusFreeVec.empty()) {
         size = agents.size();
         for (int i = 0 ; i < size ; i++) {
             agents[i]->act(*this);
@@ -163,6 +165,8 @@ void Session::simulate(){
 }
 
 bool Session::isTermination() {
+//    if (!nonVirusFreeVec.empty())
+//        return false;
     for (int i = 0; i < g.getEdges().size(); i++) {
         if (g.isInfected(i)){
             // I am infected, now check if my neighbers are not infected
@@ -232,12 +236,22 @@ std::vector<int> Session::getNonVirusFreeVec(){
 }
 
 bool Session::findInNonVirusFreeVec(const int &nodeInd) const {
-    bool flag = false;
+//    bool flag = false;
     for (int i : nonVirusFreeVec) {
         if (i == nodeInd)
-            flag = true;
+            return true;
     }
-    return flag;
+    return false;
+}
+
+void Session::addVirusToVec(int nodeInd) {
+    nonVirusFreeVec.push_back(nodeInd);
+}
+
+void Session::removeVirusFromVec(int nodeInd){
+
+    nonVirusFreeVec.erase(std::remove(nonVirusFreeVec.begin(), nonVirusFreeVec.end(), nodeInd), nonVirusFreeVec.end());;
+
 }
 
 void Session::print() {
