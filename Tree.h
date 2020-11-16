@@ -12,6 +12,10 @@ public:
 
     virtual ~ Tree(); // distructor
 
+    Tree & operator=(const Tree &other); // assignment operator
+
+    void clear();
+
     Tree(const Tree&); // copy constructor
 
     void addChild(const Tree& child); // dolav says that it have to be implement , but not realy use
@@ -39,8 +43,12 @@ public:
 
 
 
+
+
 protected:
     int node;
+
+
 
     vector<Tree*> children;
 
@@ -57,6 +65,9 @@ public:
 
     virtual Tree* clone() const; // NEED to check -- think its necessary -- rafael add
 
+    int getCurrCycle();
+
+
 
 
 
@@ -66,6 +77,7 @@ public:
 
 private:
     int currCycle;
+
 };
 
 //---------------------------------------------------
@@ -92,6 +104,8 @@ public:
     virtual int traceTree();
 
     virtual Tree* clone() const; // NEED to check -- think its necessary -- rafael add **** Yes its necessary for addChildren function. ****
+
+
 };
 
 #endif
