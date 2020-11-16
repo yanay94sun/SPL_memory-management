@@ -23,7 +23,10 @@ public:
 
     //yanay copy constructor
     Session(const Session& other);
-    
+    Session(Session&& other);
+
+    Session& operator=(Session&& other);
+
     void simulate();
 
     bool isTermination();
@@ -56,20 +59,24 @@ public:
 
     bool findInNonVirusFreeVec(const int &nodeInd) const ; // rafael add
 
+    Session& operator=(const Session& session);
+
+    void clear();
 
 
 private:
-    std::vector<vector<int>> parseGraph(const string &path);
+    void parseJson(const string &path);
 
     Graph g;
     TreeType treeType;
     std::vector<Agent*> agents;
 
-    int cycleCounter; // rafael add
+    int cycleCounter = 0;
     std::vector<int> infectedQ; // rafael add
 
     std::vector<int> nonVirusFreeVec; // rafael add
 
+    void print();
 };
 
 #endif

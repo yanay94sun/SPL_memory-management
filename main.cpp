@@ -4,13 +4,14 @@
 using namespace std;
 
 int main(int argc, char** argv){
+
     if(argc != 2){
         cout << "usage cTrace <config_path>" << endl;
-        return 0;
+        return -1;
 
     }
     Session sess(argv[1]);
 
-    // sess.simulate(); FIXME: Fix it
+    sess.simulate();
     return 0;
 };

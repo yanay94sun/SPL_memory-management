@@ -30,7 +30,11 @@ public:
 
     virtual int getNodeInd(Tree& tree) const;  //yanay add
 
+    virtual int getNodeInd() const;
+
     vector<Tree*> getChildrenVec() const;
+
+    void sortChildrenVec(Tree *curTree);
 
 
 
@@ -39,6 +43,8 @@ protected:
     int node;
 
     vector<Tree*> children;
+
+    void sort(vector<Tree *>::iterator iterator, vector<Tree *>::iterator iterator1);
 };
 
 //---------------------------------------------------

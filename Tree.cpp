@@ -1,4 +1,5 @@
 #include <string>
+#include <algorithm>
 #include "Tree.h"
 #include "Session.h" // ASK OK ?????????????
 #include "Graph.h"
@@ -6,8 +7,7 @@
 using namespace std;
 
 //constructor -- yanay
-Tree::Tree(int rootLabel) : node(rootLabel) , children() { // RULE OF 5 !! --- yanay add node(rootLabel) and children -- not sure
-
+Tree::Tree(int rootLabel) : node(rootLabel) { // RULE OF 5 !! --- yanay add node(rootLabel) and children -- not sure
 }
 
 //distructor --- yanay
@@ -18,7 +18,7 @@ Tree::~Tree(){
     children.clear() ; //size of children vector is now zero --- yanay
 }
 
-Tree::Tree(const Tree &other) : node(other.node), children(vector<Tree*>()) { // copy constructor -- ASK for HELP!!!
+Tree::Tree(const Tree &other) : node(other.node) { // copy constructor -- ASK for HELP!!!
     for(auto child : other.children){
         this->addChild(child->clone());
     }
@@ -49,6 +49,10 @@ Tree * Tree::createTree(const Session &session, int rootLabel) {
     return newTree;
 }
 
+void Tree::sortChildrenVec(Tree *curTree){ //rafael add - sorting children vecx
+    sort(curTree->children.begin(), curTree->children.end());
+}
+
 
 
 //const Tree &Tree::getChildAt(int childInd) const {
@@ -56,9 +60,13 @@ Tree * Tree::createTree(const Session &session, int rootLabel) {
 //}
 
 
-int Tree::getNodeInd(Tree &tree) const {   //yanay add
+int Tree::getNodeInd(Tree& tree) const {   //yanay add
     return this->node;
 }
+
+int Tree::getNodeInd() const{
+    return this->node;
+};
 
 
 //CycleTree ------------------------------------
@@ -86,6 +94,10 @@ Tree* CycleTree::clone() const {
 
 vector<Tree *> Tree::getChildrenVec() const {
     return this->children;
+}
+
+void Tree::sort(vector<Tree *>::iterator iterator, vector<Tree *>::iterator iterator1) {
+
 }
 
 

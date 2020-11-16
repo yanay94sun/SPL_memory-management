@@ -2,6 +2,7 @@
 #include <iostream> // Remove!!!!!
 #include "Session.h"
 #include <fstream>
+#include <sstream>
 #include "Agent.h"
 
 using json = nlohmann::json;
@@ -22,13 +23,14 @@ ostream& operator<<(ostream &os, const Graph &graph)
 }
 
 // aviital func
-vector<vector<int>> Session::parseGraph(const string &path)
+void Session::parseJson(const string &path)
 {
     ifstream file(path);
     json j;
     file >> j;
     vector<vector<int>> res;
 
+    // **** Parse graph ****
     auto graph = j["graph"];
     for (size_t i = 0; i < graph.size(); i++)
     {
@@ -39,6 +41,9 @@ vector<vector<int>> Session::parseGraph(const string &path)
             res[i].push_back(k.get<int>());
         }
     }
+    g = Graph(res);
+
+    // **** Parse tree ****
     string type = j["tree"].get<string>();
     if (type == "R")
         treeType = Root;
@@ -48,67 +53,125 @@ vector<vector<int>> Session::parseGraph(const string &path)
         treeType = Cycle;
 
 
-// avital func
+    // **** Parse agents ****
     auto agentsJ = j["agents"];
     for (auto agent : agentsJ)
     {
-        for (size_t z = 0; z < agent.size(); z++)
-        {
-           string agentType = agent[0].get<string>();
-            if (agentType == "V")
-                agents.push_back(new Virus(agent[1].get<int>()));
-            else if (agentType == "C")
-                agents.push_back(new ContactTracer());
-        }
+       string agentType = agent[0].get<string>();
+        if (agentType == "V")
+            agents.push_back(new Virus(agent[1].get<int>()));
+        else if (agentType == "C")
+            agents.push_back(new ContactTracer());
     }
-
-    return res;
 }
 
 //not sure about it - yanay
-Session::Session(const std::string &path) : g(parseGraph(path)), treeType(), agents() {
-    std::cout << g << std::endl;
+Session::Session(const std::string &path) : g({}), treeType() {
+    parseJson(path);
+   // agents.push_back(new Virus(2));
+    //cout << treeType << endl ;
+    //std::cout << g << std::endl;
+    //for(auto & agent : agents)
+      //  cout << agent << endl ;
 }
 
 Session::~Session() {
+    clear();
+}
+
+void Session::clear()
+{
     for (Agent *agent : agents)
         delete agent;
+
+    agents.clear();
 }
 
 //copy constructor --- need to implmant clone() in each agent.S
 Session::Session(const Session& other):g(other.g), treeType(other.treeType), agents() {
-    for(int i=0; i < other.agents.size(); i++){
-        agents.push_back(other.agents[i]->clone());
+    for(auto agent : other.agents){
+        agents.push_back(agent->clone());
     }
 }
+//copy assignment oprator
+
+Session& Session::operator=(const Session& other)
+{
+    if (this != &other)
+    {
+        clear();
+        for (const auto &otherAgent : other.agents)
+            agents.push_back(otherAgent->clone());
+
+        g = Graph(other.g);
+        treeType = other.treeType;
+        cycleCounter = other.cycleCounter;
+        infectedQ = other.infectedQ;
+        nonVirusFreeVec = other.nonVirusFreeVec;
+    }
+
+    return *this;
+}
+
 
 // Move Constructor
-//Session::Session(Session&& other) : g(other.g), treeType(other.treeType), agents() // TODO need to get inside session, not sure how  //Yanay
-//{
-//    other.g  = 0;
-//    other.treeType = 0;
-//    other.agents = nullptr;
-//}
+Session::Session(Session&& other) : g(std::move(other.g))
+{
 
-// TODO need to get inside session, not sure how  //Yanay
+    if (this != &other){
+    clear();
+    agents = std::move(other.agents);
+    treeType = other.treeType;
+    cycleCounter = other.cycleCounter;
+    infectedQ = std::move(other.infectedQ);
+    nonVirusFreeVec = std::move(other.nonVirusFreeVec);
+        }
+}
+
+//move assignment oprator
+Session& Session::operator=(Session&& other)
+{
+    if (this != &other)
+    {
+        clear();
+        agents = std::move(other.agents);
+        treeType = other.treeType;
+        cycleCounter = other.cycleCounter;
+        infectedQ = std::move(other.infectedQ);
+        nonVirusFreeVec = std::move(other.nonVirusFreeVec);
+    }
+
+    return *this;
+}
+
+
+//  need to get inside session, not sure how  //Yanay
 void Session::simulate(){
+    int size = agents.size();
+    for (int i = 0 ; i < size ; i++) {
+        agents[i]->act(*this);
+    }
     while (!isTermination()) {
-        int size = agents.size();
-        for (auto &elem:agents) {
-            elem->act(*this);
+        size = agents.size();
+        for (int i = 0 ; i < size ; i++) {
+            agents[i]->act(*this);
         }
         cycleCounter++;
     }
+
+    print();
 }
 
 bool Session::isTermination() {
     for (int i = 0; i < g.getEdges().size(); i++) {
         if (g.isInfected(i)){
+            // I am infected, now check if my neighbers are not infected
             for (int j = 0; j < g.getEdges().size(); j++) {
-                if (g.getEdges()[i][j] == 1 && !g.isInfected(j))
+                if ((g.getEdges()[i][j] == 1) && (!g.isInfected(j)))
                     return false;
             }
         }
+        // I am not infected, now check if my neighbers are infected
         else{
             for (int k = 0; k < g.getEdges().size(); k++) {
                 if (g.getEdges()[i][k] == 1 && g.isInfected(k))
@@ -143,7 +206,9 @@ void Session::enqueueInfected(int node) { // rafael add
 }
 
 int Session::dequeueInfected() { // rafael add
+    int res = infectedQ.back();
     infectedQ.pop_back();
+    return res;
 }
 
 TreeType Session::getTreeType() const {
@@ -173,6 +238,16 @@ bool Session::findInNonVirusFreeVec(const int &nodeInd) const {
             flag = true;
     }
     return flag;
+}
+
+void Session::print() {
+    json j;
+
+    ofstream os("out.json");
+    stringstream ss;
+    ss << g;
+    cout << ss.str();
+   // j = json::parse(g.getEdges());
 }
 
 
