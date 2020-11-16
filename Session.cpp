@@ -153,7 +153,7 @@ void Session::simulate(){
     for (int i = 0 ; i < size ; i++) {
         agents[i]->act(*this);
     }
-    while (!isTermination() || !nonVirusFreeVec.empty()) {
+    while (!isTermination() || !nonVirusFreeVec.empty()) {///
         size = agents.size();
         for (int i = 0 ; i < size ; i++) {
             agents[i]->act(*this);
