@@ -33,7 +33,9 @@ Tree::~Tree(){
 void Tree::clear()
 {
     for (Tree* child : children)
+    {
         delete child;
+    }
 
     children.clear();
 }
@@ -110,15 +112,15 @@ CycleTree::CycleTree(int rootLabel, int currCycle) : Tree(rootLabel), currCycle(
 
 int CycleTree::traceTree() {   //yanay add ------- Hope its works
     int counter = 0;
-    Tree* tempRoot = this;
-    vector<Tree*> tempChildVec = tempRoot->getChildrenVec();
+    Tree* tempRoot = nullptr;
+    vector<Tree*> tempChildVec = getChildrenVec();
     while (counter <=  currCycle && !tempChildVec.empty()){
         tempRoot = tempChildVec[0];
         tempChildVec = tempRoot->getChildrenVec();
         counter++;
     }
-    delete tempRoot;
-    return getNodeInd(*tempRoot); //TODO need to delete copy!! dont know where. --- yanay
+
+    return getNodeInd(*tempRoot);
 }
 
 
@@ -162,22 +164,22 @@ int MaxRankTree::getMaxRankNode() {
 
 //yanay add
 int MaxRankTree::traceTree() {
-    int tempMaxNode = node;
-    int tempMaxChildSize = children.size();
-    Tree* tempRoot = this;
-    vector<Tree*> tempChildVec = tempRoot->getChildrenVec();
-    while (tempChildVec.empty()){
-        for (int i = 0; i < tempChildVec.size(); ++i) {
-            if(tempChildVec[i]->getChildrenVec().size() > tempMaxChildSize)
-                tempMaxNode = tempChildVec[i]->getNodeInd();
-        }
-
-        tempRoot = tempChildVec[0];
-
-        counter++;
-    }
-    delete tempRoot;
-    return getNodeInd(*tempRoot); //TODO need to delete copy!! dont know where. --- yanay
+//    int tempMaxNode = node;
+//    int tempMaxChildSize = children.size();
+//    Tree* tempRoot = this;
+//    vector<Tree*> tempChildVec = tempRoot->getChildrenVec();
+//    while (tempChildVec.empty()){
+//        for (int i = 0; i < tempChildVec.size(); ++i) {
+//            if(tempChildVec[i]->getChildrenVec().size() > tempMaxChildSize)
+//                tempMaxNode = tempChildVec[i]->getNodeInd();
+//        }
+//
+//        tempRoot = tempChildVec[0];
+//
+//        counter++;
+//    }
+//    delete tempRoot;
+//    return getNodeInd(*tempRoot); //TODO need to delete copy!! dont know where. --- yanay
 
 }
 

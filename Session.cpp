@@ -75,6 +75,9 @@ Session::Session(const std::string &path) : g({}), treeType() {
     //std::cout << g << std::endl;
     //for(auto & agent : agents)
       //  cout << agent << endl ;
+
+
+
 }
 
 Session::~Session() {

@@ -10,7 +10,7 @@ class Tree{
 public:
     Tree(int rootLabel); // constructor
 
-    virtual ~ Tree(); // distructor
+    virtual ~Tree(); // distructor
 
     Tree & operator=(const Tree &other); // assignment operator
 
@@ -66,9 +66,6 @@ public:
     virtual Tree* clone() const; // NEED to check -- think its necessary -- rafael add
 
     int getCurrCycle();
-
-
-
 
 
 
