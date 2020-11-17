@@ -156,12 +156,17 @@ void Session::simulate(){
     for (int i = 0 ; i < size ; i++) {
         agents[i]->act(*this);
     }
+    cout << "cycle number : "<< cycleCounter << endl;
+    cout << "\n "<< endl;
     cycleCounter++;
     while (!isTermination() || !nonVirusFreeVec.empty()) {///
         size = agents.size();
         for (int i = 0 ; i < size ; i++) {
             agents[i]->act(*this);
         }
+        cout << "cycle number : "<< cycleCounter << endl;
+        cout << "\n "<< endl;
+
         cycleCounter++;
     }
 
@@ -234,7 +239,7 @@ std::vector<std::vector<int>> Session::getEdges() { // rafael add
 }
 
 int Session::getCycleCounter() const {
-    return cycleCounter;
+    return this->cycleCounter;
 }
 
 std::vector<int> Session::getInfectedQ() { // rafael add

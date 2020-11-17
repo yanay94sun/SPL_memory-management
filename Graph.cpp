@@ -72,6 +72,7 @@ Tree*  Graph::BFSScan(int nodeInd, const Session& session){
         currTree->sortChildrenVec(currTree); // rafael add - but think here need to send an address but impassible ??????????????????????
         q.erase(q.begin()); //dequeue ---- dont know if the data of currTree is earase too ??????????????
     }
+    cout << "root= " << retTree->getNodeInd() << endl;
     return retTree;
 }
 

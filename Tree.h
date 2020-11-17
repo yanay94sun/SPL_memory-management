@@ -65,7 +65,7 @@ public:
 
     virtual Tree* clone() const; // NEED to check -- think its necessary -- rafael add
 
-    int getCurrCycle();
+
 
 
 

@@ -41,6 +41,7 @@ void Tree::clear()
 }
 
 Tree::Tree(const Tree &other) : node(other.node) { // copy constructor -- ASK for HELP!!!
+    //cout << "I AM HEREEEEEEEEEEEEEEEE" << endl;
     for(auto child : other.children){
         this->addChild(child->clone());
     }
@@ -54,6 +55,7 @@ Tree::Tree(const Tree &other) : node(other.node) { // copy constructor -- ASK fo
             node = other.node;
         }
     }
+     return *this;
 }
 
 
@@ -77,7 +79,7 @@ Tree * Tree::createTree(const Session &session, int rootLabel) {
     else if (session.getTreeType() == Root) {
         newTree = new RootTree(rootLabel);
     }
-    else if (session.getTreeType() == Cycle) {
+    else {
         newTree = new CycleTree(rootLabel, session.getCycleCounter());
     }
     return newTree;
@@ -106,20 +108,20 @@ int Tree::getNodeInd() const{
 //CycleTree ------------------------------------
 
 //CycleTree constructor --- Yanay
-CycleTree::CycleTree(int rootLabel, int currCycle) : Tree(rootLabel), currCycle(){}
+CycleTree::CycleTree(int rootLabel, int currCycle) : Tree(rootLabel) , currCycle(currCycle){}
 
 
 
 int CycleTree::traceTree() {   //yanay add ------- Hope its works
     int counter = 0;
-    Tree* tempRoot = nullptr;
+    Tree* tempRoot = this->clone();
     vector<Tree*> tempChildVec = getChildrenVec();
-    while (counter <=  currCycle && !tempChildVec.empty()){
-        tempRoot = tempChildVec[0];
+    while (counter <  this->currCycle && !tempChildVec.empty()){
+        tempRoot = tempChildVec[0]->clone();
         tempChildVec = tempRoot->getChildrenVec();
         counter++;
     }
-
+    cout << "DISCONNECT NODE : " << getNodeInd(*tempRoot) << "     adress: " << tempRoot <<endl ;
     return getNodeInd(*tempRoot);
 }
 
@@ -132,14 +134,10 @@ vector<Tree *> Tree::getChildrenVec() const {
     return this->children;
 }
 
-int CycleTree::getCurrCycle(){
-    return currCycle;
-}
 
 void Tree::sort(vector<Tree *>::iterator iterator, vector<Tree *>::iterator iterator1) {
 
 }
-
 
 
 

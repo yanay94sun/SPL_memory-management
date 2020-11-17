@@ -16,15 +16,17 @@ ContactTracer::ContactTracer() {
 
 }
 void ContactTracer::act(Session &session) {
+    cout << "***** In act *****" <<endl ;
     if(session.getInfectedQ().empty())
         return;
     Tree* bfs = session.getGraphReference().BFSScan(session.dequeueInfected(), session); // rafael add
     int infectedNodeInd = bfs->traceTree();
     delete bfs;
-    for (int i = 0; i < session.getEdges().size(); ++i){
+    for (int i = 0; i < session.getEdges().size(); i++){
         session.getGraphReference().getEdgesReference()[infectedNodeInd][i] = 0;
         session.getGraphReference().getEdgesReference()[i][infectedNodeInd] = 0;
     }
+
 }
 
 Agent* ContactTracer::clone() const{
