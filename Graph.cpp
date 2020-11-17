@@ -67,6 +67,7 @@ Tree*  Graph::BFSScan(int nodeInd, const Session& session){
 
                 // Set
                 visited[i] = true;
+
             }
         }
         currTree->sortChildrenVec(currTree); // rafael add - but think here need to send an address but impassible ??????????????????????

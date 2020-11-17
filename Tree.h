@@ -32,7 +32,7 @@ public:
 
     //virtual const Tree& getChildAt(int childInd) const;  //yanay add
 
-    virtual int getNodeInd(Tree& tree) const;  //yanay add
+    virtual int getNodeInd(Tree* tree) const;  //yanay add
 
     virtual int getNodeInd() const;
 

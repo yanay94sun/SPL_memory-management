@@ -198,6 +198,7 @@ bool Session::isTermination() {
 
 void Session::addAgent(const Agent& agent) {
     agents.push_back(agent.clone()); //TODO need to delete copy!!! dont know where. --- yanay
+    cout << agent.clone() << endl;
 }
 
 void Session::setGraph(const Graph& graph) {

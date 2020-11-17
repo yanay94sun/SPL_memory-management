@@ -60,7 +60,7 @@ void Virus::act(Session &session) {
         session.enqueueInfected(nodeInd);
     }
 
-    for (int i = 0; i < session.getEdges().size(); ++i) {
+    for (int i = 0; i < session.getEdges().size(); i++) {
 
         if (session.findInNonVirusFreeVec(i) || session.getEdges()[nodeInd][i] == 0 || session.getGraphReference().isInfected(i))
             continue;

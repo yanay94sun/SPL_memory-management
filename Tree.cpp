@@ -96,8 +96,8 @@ void Tree::sortChildrenVec(Tree *curTree){ //rafael add - sorting children vecx
 //}
 
 
-int Tree::getNodeInd(Tree& tree) const {   //yanay add
-    return this->node;
+int Tree::getNodeInd(Tree* tree) const {   //yanay add
+    return tree->node;
 }
 
 int Tree::getNodeInd() const{
@@ -114,15 +114,15 @@ CycleTree::CycleTree(int rootLabel, int currCycle) : Tree(rootLabel) , currCycle
 
 int CycleTree::traceTree() {   //yanay add ------- Hope its works
     int counter = 0;
-    Tree* tempRoot = this->clone();
+    Tree* tempRoot = this;
     vector<Tree*> tempChildVec = getChildrenVec();
     while (counter <  this->currCycle && !tempChildVec.empty()){
-        tempRoot = tempChildVec[0]->clone();
+        tempRoot = tempChildVec[0];
         tempChildVec = tempRoot->getChildrenVec();
         counter++;
     }
-    cout << "DISCONNECT NODE : " << getNodeInd(*tempRoot) << "     adress: " << tempRoot <<endl ;
-    return getNodeInd(*tempRoot);
+    cout << "DISCONNECT NODE : " << getNodeInd(tempRoot) << "     adress: " << tempRoot << "   this children size: " << getChildrenVec().size() << "   temproot child size: " << tempRoot->getChildrenVec().size() << endl ;
+    return getNodeInd(tempRoot);
 }
 
 
