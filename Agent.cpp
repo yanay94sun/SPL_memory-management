@@ -2,19 +2,17 @@
 #include "Tree.h"
 
 
-Agent::Agent() {
+Agent::Agent() = default;
 
-}
-
-Agent::~Agent() {}  // need for def distructor for no warnings
+Agent::~Agent() = default;
 
 
 
-//--------------------------
+//*************************************** ContactTracer ************************************************
 
-ContactTracer::ContactTracer() {
+ContactTracer::ContactTracer() = default;
 
-}
+
 void ContactTracer::act(Session &session) {
     if(session.getInfectedQ().empty())
         return;
@@ -22,7 +20,7 @@ void ContactTracer::act(Session &session) {
     int infectedNodeInd = bfs->traceTree();
     cout << "my line should be zero " << infectedNodeInd << endl;
     delete bfs;
-    for (int i = 0; i < session.getEdges().size(); ++i){
+    for (int i = 0; i < session.getEdges().size(); i++){
         session.getGraphReference().getEdgesReference()[infectedNodeInd][i] = 0;
         session.getGraphReference().getEdgesReference()[i][infectedNodeInd] = 0;
     }
@@ -33,7 +31,7 @@ Agent* ContactTracer::clone() const{
 }
 
 
-//-------------------
+//*************************************** Virus ************************************************
 
 
 Agent* Virus::clone() const{
@@ -41,26 +39,16 @@ Agent* Virus::clone() const{
 }
 
 Virus::Virus(int nodeInd) : nodeInd(nodeInd) {
-
-
 }
-void Virus::act(Session &session) {
-//    bool flag = true;
-//    for (int i = 0; i < session.getInfectedQ().size(); ++i) {
-//        if (session.getInfectedQ()[i] == nodeInd)
-//            flag = false;
-//    }
-//    if (flag)
-//        session.enqueueInfected(nodeInd);
 
+
+void Virus::act(Session &session) {
     if (!session.getGraphReference().isInfected(nodeInd)) {
         session.getGraphReference().infectNode(nodeInd);
         session.removeVirusFromVec(nodeInd);
         session.enqueueInfected(nodeInd);
     }
-
-    for (int i = 0; i < session.getEdges().size(); ++i) {
-
+    for (int i = 0; i < session.getEdges().size(); i++) {
         if (session.findInNonVirusFreeVec(i) || session.getEdges()[nodeInd][i] == 0 || session.getGraphReference().isInfected(i))
             continue;
 //        else if(session.getEdges()[nodeInd][i] == 0)
@@ -68,12 +56,8 @@ void Virus::act(Session &session) {
 //            auto newVirus = this->clone();
         session.addAgent(Virus(i)); //???????????????????????????????????????????????????????????????????
         session.addVirusToVec(i);
-        //maybe return here
         return; //not sure
-
-
-
     }
 
 }
-//
+
