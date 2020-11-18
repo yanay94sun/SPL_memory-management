@@ -15,6 +15,9 @@ enum TreeType{
   Root
 };
 
+
+
+
 class Session{
 public:
 
@@ -41,8 +44,6 @@ public:
     //************************************* Rule Of Five End ***************************************************
 
 
-
-
     void simulate();
 
     bool isTermination();
@@ -64,13 +65,13 @@ public:
     // yanay add
     const Graph& getGraph() const;
 
-    std::vector<std::vector<int>> getEdges(); // rafael add
+    vector<vector<int>> getEdges(); // rafael add
 
     int getCycleCounter() const; // rafael add
 
-    std::vector<int> getInfectedQ(); // rafael add
+    vector<int> getInfectedQ(); // rafael add
 
-    std::vector<int> getNonVirusFreeVec(); // rafael add
+    vector<int> getNonVirusFreeVec(); // rafael add
 
     bool findInNonVirusFreeVec(const int &nodeInd) const ; // rafael add
 
@@ -83,17 +84,17 @@ public:
 
 private:
     void parseJson(const string &path);
+    void print();
 
     Graph g;
     TreeType treeType;
-    std::vector<Agent*> agents;
+    vector<Agent*> agents;
 
     int cycleCounter = 0;
-    std::vector<int> infectedQ; // rafael add
+    vector<int> infectedQ; // rafael add
+    vector<int> nonVirusFreeVec; // rafael add
 
-    std::vector<int> nonVirusFreeVec; // rafael add
 
-    void print();
 };
 
 #endif
