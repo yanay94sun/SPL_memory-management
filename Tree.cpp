@@ -121,7 +121,6 @@ int CycleTree::traceTree() {   //yanay add ------- Hope its works
         tempChildVec = tempRoot->getChildrenVec();
         counter++;
     }
-    cout << "DISCONNECT NODE : " << getNodeInd(tempRoot) << "     adress: " << tempRoot << "   this children size: " << getChildrenVec().size() << "   temproot child size: " << tempRoot->getChildrenVec().size() << endl ;
     return getNodeInd(tempRoot);
 }
 
@@ -160,25 +159,23 @@ int MaxRankTree::getMaxRankNode() {
 
 }
 
-//yanay add
+//refael add
 int MaxRankTree::traceTree() {
-//    int tempMaxNode = node;
-//    int tempMaxChildSize = children.size();
-//    Tree* tempRoot = this;
-//    vector<Tree*> tempChildVec = tempRoot->getChildrenVec();
-//    while (tempChildVec.empty()){
-//        for (int i = 0; i < tempChildVec.size(); ++i) {
-//            if(tempChildVec[i]->getChildrenVec().size() > tempMaxChildSize)
-//                tempMaxNode = tempChildVec[i]->getNodeInd();
-//        }
-//
-//        tempRoot = tempChildVec[0];
-//
-//        counter++;
-//    }
-//    delete tempRoot;
-//    return getNodeInd(*tempRoot); //TODO need to delete copy!! dont know where. --- yanay
+    int maxRankNode = this->traceTreeRec(*this, this->getChildrenNum(), node);
+    return maxRankNode;
+}
 
+int MaxRankTree::traceTreeRec(MaxRankTree curTree, int childrenSize, int retNodeInd){
+    for (int i = 0; i < curTree.getChildrenNum(); i++) {
+        if (curTree.children.empty())
+            return -1;
+        if (curTree.getChildrenNum() > childrenSize){
+            retNodeInd = curTree.getNodeInd();
+            childrenSize = curTree.getChildrenNum();
+        }
+        retNodeInd = traceTreeRec(reinterpret_cast<MaxRankTree &&>(*(curTree.children[i])), curTree.getChildrenNum(), retNodeInd);
+    }
+    return retNodeInd;
 }
 
 Tree* MaxRankTree::clone() const {

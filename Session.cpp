@@ -156,16 +156,12 @@ void Session::simulate(){
     for (int i = 0 ; i < size ; i++) {
         agents[i]->act(*this);
     }
-    cout << "cycle number : "<< cycleCounter << endl;
-    cout << "\n "<< endl;
     cycleCounter++;
     while (!isTermination() || !nonVirusFreeVec.empty()) {///
         size = agents.size();
         for (int i = 0 ; i < size ; i++) {
             agents[i]->act(*this);
         }
-        cout << "cycle number : "<< cycleCounter << endl;
-        cout << "\n "<< endl;
 
         cycleCounter++;
     }
@@ -198,7 +194,6 @@ bool Session::isTermination() {
 
 void Session::addAgent(const Agent& agent) {
     agents.push_back(agent.clone()); //TODO need to delete copy!!! dont know where. --- yanay
-    cout << agent.clone() << endl;
 }
 
 void Session::setGraph(const Graph& graph) {
@@ -221,13 +216,7 @@ void Session::enqueueInfected(int node) { // rafael add
 
 int Session::dequeueInfected() { // rafael add
     int res = infectedQ.front();
-    for (int i = 0; i < infectedQ.size(); ++i) {
-        //cout << infectedQ[i] << endl;
-    }
-
-    //cout << "dequeue:" << res << endl;
-
-    infectedQ.erase(std::remove(infectedQ.begin(), infectedQ.end(), infectedQ.size() - 1), infectedQ.end());
+    infectedQ.pop_back();
     return res;
 }
 

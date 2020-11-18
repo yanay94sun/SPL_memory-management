@@ -22,7 +22,7 @@ public:
 
     void addChild(Tree* child); // rafael add -- help us in the BFS func
 
-    void addNeighbor(); // rafael add
+    //void addNeighbor(); // rafael add
 
     static Tree* createTree(const Session& session, int rootLabel); // CHECK!
 
@@ -84,6 +84,8 @@ public:
     MaxRankTree(int rootLabel);
 
     virtual int traceTree();
+
+    virtual int traceTreeRec(MaxRankTree curTree, int childrenSize, int retNodeInd);
 
     virtual Tree* clone() const; // NEED to check -- think its necessary -- rafael add
 

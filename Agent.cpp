@@ -16,7 +16,6 @@ ContactTracer::ContactTracer() {
 
 }
 void ContactTracer::act(Session &session) {
-    cout << "***** In act *****" <<endl ;
     if(session.getInfectedQ().empty())
         return;
     Tree* bfs = session.getGraphReference().BFSScan(session.dequeueInfected(), session); // rafael add
