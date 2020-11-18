@@ -66,8 +66,9 @@ void Session::parseJson(const string &path)
             agents.push_back(new ContactTracer());
     }
 }
+//*************************************** Rule Of Five ************************************************
 
-//not sure about it - yanay
+//Constructor
 Session::Session(const std::string &path) : g({}), treeType() {
     parseJson(path);
    // agents.push_back(new Virus(2));
@@ -80,6 +81,7 @@ Session::Session(const std::string &path) : g({}), treeType() {
 
 }
 
+//Distructor
 Session::~Session() {
     clear();
 }
@@ -92,13 +94,13 @@ void Session::clear()
     agents.clear();
 }
 
-//copy constructor --- need to implmant clone() in each agent.S
+//copy constructor
 Session::Session(const Session& other):g(other.g), treeType(other.treeType), agents() {
     for(auto agent : other.agents){
         agents.push_back(agent->clone());
     }
 }
-//copy assignment oprator
+//Copy Assignment Oprator
 
 Session& Session::operator=(const Session& other)
 {
@@ -118,22 +120,7 @@ Session& Session::operator=(const Session& other)
     return *this;
 }
 
-
-// Move Constructor
-Session::Session(Session&& other) : g(std::move(other.g))
-{
-
-    if (this != &other){
-    clear();
-    agents = std::move(other.agents);
-    treeType = other.treeType;
-    cycleCounter = other.cycleCounter;
-    infectedQ = std::move(other.infectedQ);
-    nonVirusFreeVec = std::move(other.nonVirusFreeVec);
-        }
-}
-
-//move assignment oprator
+//Move Assignment oprator
 Session& Session::operator=(Session&& other)
 {
     if (this != &other)
@@ -149,8 +136,23 @@ Session& Session::operator=(Session&& other)
     return *this;
 }
 
+// Move Constructor
+Session::Session(Session&& other) : g(std::move(other.g))
+{
 
-//  need to get inside session, not sure how  //Yanay
+    if (this != &other){
+    clear();
+    agents = std::move(other.agents);
+    treeType = other.treeType;
+    cycleCounter = other.cycleCounter;
+    infectedQ = std::move(other.infectedQ);
+    nonVirusFreeVec = std::move(other.nonVirusFreeVec);
+        }
+}
+
+//************************************* Rule Of Five End ***************************************************
+
+
 void Session::simulate(){
     int size = agents.size();
     for (int i = 0 ; i < size ; i++) {
@@ -255,7 +257,7 @@ void Session::addVirusToVec(int nodeInd) {
 
 void Session::removeVirusFromVec(int nodeInd){
 
-    nonVirusFreeVec.erase(std::remove(nonVirusFreeVec.begin(), nonVirusFreeVec.end(), nodeInd), nonVirusFreeVec.end());;
+    nonVirusFreeVec.erase(std::remove(nonVirusFreeVec.begin(), nonVirusFreeVec.end(), nodeInd), nonVirusFreeVec.end());
 
 }
 
@@ -269,6 +271,5 @@ void Session::print() {
    // j = json::parse(g.getEdges());
 }
 
-//test 11111111111111111111111
 
 

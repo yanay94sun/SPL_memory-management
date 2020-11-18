@@ -17,15 +17,31 @@ enum TreeType{
 
 class Session{
 public:
+
+    //*************************************** Rule Of Five ************************************************
+
+    //Constructor
     Session(const string& path);
 
     virtual ~Session();
 
-    //yanay copy constructor
+    //Copy Constructor
     Session(const Session& other);
+
+    //Move Constructor Operator
     Session(Session&& other);
 
+    //Move Assigment Operator
     Session& operator=(Session&& other);
+
+    //Copy Assigment
+    Session& operator=(const Session& session);
+
+
+    //************************************* Rule Of Five End ***************************************************
+
+
+
 
     void simulate();
 
@@ -59,13 +75,11 @@ public:
 
     bool findInNonVirusFreeVec(const int &nodeInd) const ; // rafael add
 
-    Session& operator=(const Session& session);
-
-    void clear();
-
     void addVirusToVec(int nodeInd);
 
     void removeVirusFromVec(int nodeInd);
+
+    void clear();
 
 
 private:

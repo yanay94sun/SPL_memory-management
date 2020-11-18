@@ -6,46 +6,28 @@
 
 using namespace std;
 
-//constructor -- yanay
+
+//*************************************** Rule Of Five ************************************************
+
+
+//Constructor
 Tree::Tree(int rootLabel) : node(rootLabel) { // RULE OF 5 !! --- yanay add node(rootLabel) and children -- not sure
 }
 
-//distructor --- yanay
+//Distructor
 Tree::~Tree(){
     clear();
-    //*cout << "I am in the destractur "  << endl;
-    //*cout << "I Am node:" << this->node << endl;
-    //*for(int i=0; i<children.size(); i++){
-       //* delete children[i];
-       //* children[i] = nullptr;
-
-//        cout << "num of children: " << children.size() << endl;
-//        cout << "I am about to delete node:" << child->node << endl;
-//        cout << "\n" << endl;
-//        cout << child->node << " has been deleted!" << endl;
-    //*}
-    //*cout << "clearing" << endl;
-    //*children.clear() ; //size of children vector is now zero --- yanay
-
-
 }
 
-void Tree::clear()
-{
-    for (Tree* child : children)
-    {
-        delete child;
-    }
 
-    children.clear();
-}
-
-Tree::Tree(const Tree &other) : node(other.node) { // copy constructor -- ASK for HELP!!!
-    //cout << "I AM HEREEEEEEEEEEEEEEEE" << endl;
+//Copy Constructor
+Tree::Tree(const Tree &other) : node(other.node) {
     for(auto child : other.children){
         this->addChild(child->clone());
     }
 }
+
+//Copy Assignment Oprator
  Tree& Tree::operator=(const Tree& other) {
     if (this != &other){
         clear();
@@ -57,6 +39,43 @@ Tree::Tree(const Tree &other) : node(other.node) { // copy constructor -- ASK fo
     }
      return *this;
 }
+
+void Tree::clear()
+{
+    for (Tree *child : children)
+        delete child;
+
+    children.clear();
+}
+
+//Move Constructor
+Tree::Tree(Tree&& other) : node(other.node)
+{
+
+    if (this != &other){
+        clear();
+        children = move(other.children);
+    }
+}
+//Move Assignment Oprator
+Tree& Tree::operator=(Tree&& other)
+{
+    if (this != &other)
+    {
+        clear();
+        children = move(other.children);
+        node = other.node;
+    }
+
+    return *this;
+}
+
+
+
+
+//************************************* Rule Of Five End ***************************************************
+
+
 
 
 void Tree::addChild(const Tree &child) { // rafael add -- dolav says that it have to be implement , but not realy use

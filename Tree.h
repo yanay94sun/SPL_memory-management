@@ -8,15 +8,38 @@ class Session; // ASK SOMEONE !!!!!!!
 
 class Tree{
 public:
-    Tree(int rootLabel); // constructor
 
-    virtual ~Tree(); // distructor
+    //*************************************** Rule Of Five ************************************************
 
-    Tree & operator=(const Tree &other); // assignment operator
+
+    //Constructor
+    Tree(int rootLabel);
+
+    //Distructor
+    virtual ~Tree();
+
+    //Copy Constructor
+    Tree(const Tree&);
+
+    //Move Constructor
+    Tree(Tree&& other);
+
+    //Copy Assignment Operator
+    Tree & operator=(Tree &&other);
+
+    //move Assigment
+    Tree& operator=(const Tree& tree);
+
+
+    //************************************* Rule Of Five End ***************************************************
+
+
+
+
 
     void clear();
 
-    Tree(const Tree&); // copy constructor
+
 
     void addChild(const Tree& child); // dolav says that it have to be implement , but not realy use
 
@@ -47,8 +70,6 @@ public:
 
 protected:
     int node;
-
-
 
     vector<Tree*> children;
 
