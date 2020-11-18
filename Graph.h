@@ -6,6 +6,7 @@
 //#include "Session.h"
 class Session; //??????????????????????????????????????????
 #include "Tree.h"
+using namespace std;
 
 class Graph{
 public:
@@ -22,16 +23,16 @@ public:
 
     friend std::ostream& operator<<(std::ostream &os, const Graph &graph); // avital func
 
-    std::vector<std::vector<int>> getEdges(); // rafael add
+    vector<vector<int>> getEdges(); // rafael add
 
-    std::vector<std::vector<int>>& getEdgesReference();
+    vector<vector<int>>& getEdgesReference();
 
     vector<int> getInfectedVec();
 
 private:
-    std::vector<std::vector<int>> edges;
+    vector<vector<int>> edges;
 
-    std::vector<int> infectedVec;
+    vector<int> infectedVec;
 };
 
 #endif

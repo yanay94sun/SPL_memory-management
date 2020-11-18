@@ -50,8 +50,7 @@ public:
     void addAgent(const Agent& agent); // for example after virus infect other node.. need to create new instance
 
     void setGraph(const Graph& graph);
-//    Graph getGraph(); // rafael did
-    
+
     void enqueueInfected(int); // rafael add
 
     void setInfected(int); // Dolav suggestion

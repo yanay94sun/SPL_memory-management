@@ -19,7 +19,6 @@ Tree::~Tree(){
     clear();
 }
 
-
 //Copy Constructor
 Tree::Tree(const Tree &other) : node(other.node) {
     for(auto child : other.children){
@@ -33,7 +32,6 @@ Tree::Tree(const Tree &other) : node(other.node) {
         clear();
         for (const auto  &otherTree : other.children ){
             this->addChild(otherTree->clone());
-
             node = other.node;
         }
     }
@@ -44,7 +42,6 @@ void Tree::clear()
 {
     for (Tree *child : children)
         delete child;
-
     children.clear();
 }
 
@@ -71,11 +68,7 @@ Tree& Tree::operator=(Tree&& other)
 }
 
 
-
-
 //************************************* Rule Of Five End ***************************************************
-
-
 
 
 void Tree::addChild(const Tree &child) { // rafael add -- dolav says that it have to be implement , but not realy use
@@ -109,12 +102,6 @@ void Tree::sortChildrenVec(Tree *curTree){ //rafael add - sorting children vecx
 }
 
 
-
-//const Tree &Tree::getChildAt(int childInd) const {
-//    return *this->children[childInd];    // yanay add
-//}
-
-
 int Tree::getNodeInd(Tree* tree) const {   //yanay add
     return tree->node;
 }
@@ -124,7 +111,7 @@ int Tree::getNodeInd() const{
 };
 
 
-//CycleTree ------------------------------------
+//===================================CycleTree=======================================
 
 //CycleTree constructor --- Yanay
 CycleTree::CycleTree(int rootLabel, int currCycle) : Tree(rootLabel) , currCycle(currCycle){}
@@ -157,15 +144,10 @@ void Tree::sort(vector<Tree *>::iterator iterator, vector<Tree *>::iterator iter
 
 }
 
+//===================================MaxRankTree=======================================
 
 
-
-
-
-//MaxRankTree --------------------------------
-
-
-//MaxRankTRee constructor ---- Yanay
+//MaxRankTree constructor ---- Yanay
 MaxRankTree::MaxRankTree(int rootLabel) : Tree(rootLabel) {}
 
 
@@ -202,21 +184,16 @@ Tree* MaxRankTree::clone() const {
 }
 
 
-
-
-
-
-
-//rootTree -------------------------------------
+//===================================RootTree=======================================
 
 //RootTree constructor
 RootTree::RootTree(int rootLabel) :Tree(rootLabel) {}
 
-//yanay add
+
 int RootTree::traceTree() {
     return node;
 }
-// yanay add
+
 Tree* RootTree::clone() const {
     return new RootTree(*this);
 }

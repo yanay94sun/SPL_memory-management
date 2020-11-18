@@ -4,11 +4,9 @@ using namespace std;
 
 
 
-Graph::Graph(std::vector<std::vector<int>> matrix) {
-    edges = matrix; // CHECK !!!! ?????????????????????????????????????????????????????
-    infectedVec = std::vector<int>  (edges.size());
-
-
+Graph::Graph(vector<vector<int>> matrix) {
+    edges = matrix;
+    infectedVec = vector<int>  (edges.size());
 //    for (std::vector<int> row : edges)
 //    {
 //        for (int col : row)
@@ -34,11 +32,6 @@ bool Graph::isInfected(int nodeInd) {
 
 Tree*  Graph::BFSScan(int nodeInd, const Session& session){
     Tree* retTree = Tree::createTree(session, nodeInd);
-//    auto retTree = currTree;
-    // Visited vector to so that
-    // a vertex is not visited more than once
-    // Initializing the vector to false as no
-    // vertex is visited at the beginning
     int vertexNum = edges.size();
     vector<bool> visited(vertexNum, false);
     vector<Tree*> q;
@@ -50,16 +43,12 @@ Tree*  Graph::BFSScan(int nodeInd, const Session& session){
     int vis;
     while (!q.empty()) {
         vis = q[0]->getNodeInd();
-        Tree* currTree = q[0]; //TODO creat new Tree , realy move the next node ??????????????????????????????????????????????????????????????????
-        // Print the current node
-//        cout << vis << " "; // REMOVE !!!!!!!!!!!!!!!!!!!!!
-
+        Tree* currTree = q[0];
         // For every adjacent vertex to the current vertex
         for (int i = 0; i < vertexNum; i++) {
             if (edges[vis][i] == 1 && (!visited[i])) {
 
                 Tree* tempChild = Tree::createTree(session, i);
-                //----currTree->addChild(Tree::createTree(session, i));
                 currTree->addChild(tempChild);
 
                 // Push the adjacent node to the queue
@@ -67,7 +56,6 @@ Tree*  Graph::BFSScan(int nodeInd, const Session& session){
 
                 // Set
                 visited[i] = true;
-
             }
         }
         currTree->sortChildrenVec(currTree); // rafael add - but think here need to send an address but impassible ??????????????????????
@@ -76,11 +64,11 @@ Tree*  Graph::BFSScan(int nodeInd, const Session& session){
     return retTree;
 }
 
-std::vector<std::vector<int>> Graph::getEdges() { // rafael add
+vector<vector<int>> Graph::getEdges() { // rafael add
     return edges;
 }
 
-std::vector<std::vector<int>>& Graph::getEdgesReference(){
+vector<vector<int>>& Graph::getEdgesReference(){
     return edges;
 }
 
