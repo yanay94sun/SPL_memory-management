@@ -164,8 +164,16 @@ void Session::simulate(){
         }
         cycleCounter++;
     }
-
+    output();
     print();
+}
+
+void Session::output() {
+    json output;
+    output["graph"] = g.getEdges();
+    output["infected"] = (g.getInfectedVec());
+    ofstream o("output.json");
+    o << output << endl;
 }
 
 bool Session::isTermination() {
@@ -214,14 +222,9 @@ void Session::enqueueInfected(int node) { // rafael add
 }
 
 int Session::dequeueInfected() { // rafael add
-    int res = infectedQ.front();
-    for (int i = 0; i < infectedQ.size(); ++i) {
-        //cout << infectedQ[i] << endl;
-    }
+    int res = infectedQ[0];
+    infectedQ.erase(infectedQ.begin());
 
-    //cout << "dequeue:" << res << endl;
-
-    infectedQ.erase(std::remove(infectedQ.begin(), infectedQ.end(), infectedQ.size() - 1), infectedQ.end());
     return res;
 }
 

@@ -40,6 +40,8 @@ public:
 
     void sortChildrenVec(Tree *curTree);
 
+//    virtual vector<Tree*> getChildren();
+
 
 
 
@@ -47,8 +49,6 @@ public:
 
 protected:
     int node;
-
-
 
     vector<Tree*> children;
 
@@ -66,11 +66,6 @@ public:
     virtual Tree* clone() const; // NEED to check -- think its necessary -- rafael add
 
     int getCurrCycle();
-
-
-
-
-
 
 private:
     int currCycle;
@@ -90,7 +85,14 @@ public:
     virtual int getMaxRankNode(); //yanay add
 
     virtual int getChildrenNum (); //yanay add for MaxRankTree
+
+    virtual int& getChildrenNumRef ();
+
+    virtual int traceTreeRec(MaxRankTree curTree, int &childrenSize, int retNodeInd);
+
+//    vector<MaxRankTree*> getChildren();
 };
+
 
 //---------------------------------------------------
 
@@ -101,8 +103,6 @@ public:
     virtual int traceTree();
 
     virtual Tree* clone() const; // NEED to check -- think its necessary -- rafael add **** Yes its necessary for addChildren function. ****
-
-
 };
 
 #endif

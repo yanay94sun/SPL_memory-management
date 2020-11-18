@@ -102,6 +102,10 @@ int Tree::getNodeInd() const{
     return this->node;
 };
 
+//vector<Tree*> Tree::getChildren(){
+//    return children;
+//};
+
 
 //CycleTree ------------------------------------
 
@@ -157,36 +161,86 @@ MaxRankTree::MaxRankTree(int rootLabel) : Tree(rootLabel) {}
 int MaxRankTree::getChildrenNum()  {
     return this->children.size();
 }
+
+int& MaxRankTree::getChildrenNumRef()  {
+    int childrenSize = this->children.size();
+    return childrenSize;
+}
 // yanay add
 int MaxRankTree::getMaxRankNode() {
 
 }
 
-//yanay add
-int MaxRankTree::traceTree() {
-//    int tempMaxNode = node;
-//    int tempMaxChildSize = children.size();
-//    Tree* tempRoot = this;
-//    vector<Tree*> tempChildVec = tempRoot->getChildrenVec();
-//    while (tempChildVec.empty()){
-//        for (int i = 0; i < tempChildVec.size(); ++i) {
-//            if(tempChildVec[i]->getChildrenVec().size() > tempMaxChildSize)
-//                tempMaxNode = tempChildVec[i]->getNodeInd();
-//        }
-//
-//        tempRoot = tempChildVec[0];
-//
-//        counter++;
-//    }
-//    delete tempRoot;
-//    return getNodeInd(*tempRoot); //TODO need to delete copy!! dont know where. --- yanay
+//vector<MaxRankTree*> MaxRankTree::getChildren(){
+//    return children;
+//}
 
-}
+//yanay add
+//int MaxRankTree::traceTree() {
+////    int tempMaxNode = node;
+////    int tempMaxChildSize = children.size();
+////    Tree* tempRoot = this;
+////    vector<Tree*> tempChildVec = tempRoot->getChildrenVec();
+////    while (tempChildVec.empty()){
+////        for (int i = 0; i < tempChildVec.size(); ++i) {
+////            if(tempChildVec[i]->getChildrenVec().size() > tempMaxChildSize)
+////                tempMaxNode = tempChildVec[i]->getNodeInd();
+////        }
+////
+////        tempRoot = tempChildVec[0];
+////
+////        counter++;
+////    }
+////    delete tempRoot;
+////    return getNodeInd(*tempRoot); //TODO need to delete copy!! dont know where. --- yanay
+//
+//}
+
+//int MaxRankTree::traceTree() {
+//    int maxRankNode = this->traceTreeRec(*this, this->getChildrenNum(), 0, 0, node);
+//    return maxRankNode;
+//}
+//
+//int MaxRankTree::traceTreeRec(MaxRankTree curTree, int childrenSize, int counter, int levelTree, int retNodeInd){
+//        if (counter == curTree.children.size())
+//    {
+//        counter = 0;
+//        levelTree--;
+//        return retNodeInd;
+//    }
+//    if(children.empty())
+//        return -1;
+//    if (curTree.children.size() > childrenSize)
+//        retNodeInd = curTree.getNodeInd();
+//
+//
+//    if ((traceTreeRec(reinterpret_cast<MaxRankTree &&>(curTree.children[counter]), curTree.getChildrenNum(), counter + 1, levelTree, retNodeInd)) == -1){
+//        return traceTreeRec(reinterpret_cast<MaxRankTree &&>(curTree.children[counter + 1]), curTree.getChildrenNum(), counter + 1, levelTree, retNodeInd);
+//    }
+//    return traceTreeRec(reinterpret_cast<MaxRankTree &&>(curTree.children[counter]), curTree.getChildrenNum(), counter + 1, levelTree, retNodeInd);
+//
+//
+//}
 
 Tree* MaxRankTree::clone() const {
     return new MaxRankTree(*this);
 }
+int MaxRankTree::traceTree() {
+    int childrenSize = children.size();
+    int maxRankNode = this->traceTreeRec(*this, childrenSize, node);
+    return maxRankNode;
+}
 
+int MaxRankTree::traceTreeRec(MaxRankTree curTree, int &childrenSize, int retNodeInd){
+    for (int i = curTree.getChildrenNum() - 1; i >= 0; --i) {
+        if (curTree.getChildrenNum() >= childrenSize){
+            retNodeInd = curTree.getNodeInd();
+            childrenSize = curTree.getChildrenNum();
+        }
+        retNodeInd = traceTreeRec(reinterpret_cast<MaxRankTree &&>(*(curTree.children[i])), childrenSize, retNodeInd);
+    }
+    return retNodeInd;
+}
 
 
 

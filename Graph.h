@@ -26,6 +26,8 @@ public:
 
     std::vector<std::vector<int>>& getEdgesReference();
 
+    std::vector<int> getInfectedVec();
+
 private:
     std::vector<std::vector<int>> edges;
 

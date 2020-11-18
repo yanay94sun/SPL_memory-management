@@ -82,3 +82,7 @@ std::vector<std::vector<int>> Graph::getEdges() { // rafael add
 std::vector<std::vector<int>>& Graph::getEdgesReference(){
     return edges;
 }
+
+std::vector<int> Graph::getInfectedVec(){
+    return infectedVec;
+}
